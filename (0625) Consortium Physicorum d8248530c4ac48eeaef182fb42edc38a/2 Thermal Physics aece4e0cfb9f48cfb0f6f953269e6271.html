@@ -1,0 +1,681 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>2. Thermal Physics</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(0, 0, 0, 0.06); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="aece4e0c-fb9f-48cf-b0f6-f953269e6271" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">🕯️</span></div><h1 class="page-title">2. Thermal Physics</h1><p class="page-description"></p></header><div class="page-body"><p id="c8d8d6fb-5ca2-47e5-b4af-4380e6e9a6e6" class="">
+</p><p id="d8a2bf36-6115-4994-a68d-f1f8c4177358" class="block-color-orange_background"><strong> 2.1: Kinetic Particle Model of Matter</strong></p><ul id="3e5947c8-c525-45d3-92cf-ca7af6f092aa" class="toggle"><li><details open=""><summary>(2.1.1) States of Matter</summary><figure id="6af7d963-62a9-4e0f-99e7-8a457aca3c33" class="image"><a href="2%20Thermal%20Physics%20aece4e0cfb9f48cfb0f6f953269e6271/Untitled.png"><img style="width:576px" src="2%20Thermal%20Physics%20aece4e0cfb9f48cfb0f6f953269e6271/Untitled.png"/></a><figcaption>The 5 postulates of KPT are not necessary unless you take chem</figcaption></figure><figure id="28f58691-8289-454b-9835-eb0b3a60b2f2" class="image"><a href="2%20Thermal%20Physics%20aece4e0cfb9f48cfb0f6f953269e6271/Untitled%201.png"><img style="width:576px" src="2%20Thermal%20Physics%20aece4e0cfb9f48cfb0f6f953269e6271/Untitled%201.png"/></a></figure></details></li></ul><ul id="c9a4804e-c6d3-4516-b177-955d16b060a4" class="toggle"><li><details open=""><summary>(2.1.2) Brownian Motion</summary><ul id="a9992f36-d2b5-44f2-9652-58cace0e9701" class="bulleted-list"><li style="list-style-type:disc"><strong>Brownian Motion </strong>is caused by the <strong>random collisions</strong> between the <mark class="highlight-blue"><strong>microscopic particles</strong></mark> in a suspension and the light fast-moving <mark class="highlight-red"><strong>atoms and/or molecules </strong></mark>of the gas or liquid<ul id="c4ec9f19-89af-4220-8e4d-73350dd9618f" class="bulleted-list"><li style="list-style-type:circle"><mark class="highlight-red"><span style="border-bottom:0.05em solid">Atoms and molecules</span></mark> are <strong>distinct </strong>from <mark class="highlight-blue"><span style="border-bottom:0.05em solid">microscopic particles</span></mark></li></ul><figure id="c09eec1a-f60c-4e9c-827a-b234954a77eb" class="image"><a href="2%20Thermal%20Physics%20aece4e0cfb9f48cfb0f6f953269e6271/Untitled%202.png"><img style="width:528px" src="2%20Thermal%20Physics%20aece4e0cfb9f48cfb0f6f953269e6271/Untitled%202.png"/></a></figure></li></ul></details></li></ul><ul id="d220c385-4507-4cf5-ab68-6c66532698df" class="toggle"><li><details open=""><summary>(2.1.3) Gases</summary><ul id="c8c21b1b-947e-4dfc-a6aa-9a3cb7af4184" class="toggle"><li><details open=""><summary><span style="border-bottom:0.05em solid">Gas Pressure</span></summary><ul id="cda98672-e3fb-45dd-9529-a17e2da65859" class="bulleted-list"><li style="list-style-type:disc"><strong>Pressure </strong>is caused by the <strong>collision of gas particles with a surface</strong> (<em>container walls</em>)<ul id="4e11ea5f-1834-4459-862e-207e3f9b480a" class="bulleted-list"><li style="list-style-type:circle"><strong>Random motion</strong> means they be doing that<table id="3002d97d-19b2-48d9-be53-ed012ace1f67" class="simple-table"><tbody><tr id="cc60d624-cd64-4c22-bf63-57415192a428"><td id="?eph" class="" style="width:193.00001525878906px"><strong><mark class="highlight-blue">Increase </mark></strong>in <strong>Temperature </strong><br/>(<br/><em>at constant volume</em>)</td><td id="C@zU" class="" style="width:195px"><mark class="highlight-blue"><strong>Increase </strong></mark>in <strong>Pressure</strong></td></tr><tr id="6f98b2f3-b470-41ad-b77e-2bd485ae19c1"><td id="?eph" class="" style="width:193.00001525878906px"><strong><mark class="highlight-blue">Increase </mark></strong>in <strong>Volume </strong><br/>(<br/><em>at constant temperature</em>)</td><td id="C@zU" class="" style="width:195px"><mark class="highlight-red"><strong>Decrease </strong></mark>in <strong>Pressure</strong></td></tr></tbody></table></li></ul></li></ul></details></li></ul><ul id="bc389a2e-5231-4253-b543-dd1b2b4e9ec3" class="toggle"><li><details open=""><summary><span style="border-bottom:0.05em solid">Boyle’s Law</span></summary><ul id="fc4c081f-eb40-4bd1-b662-e2c70b7df477" class="bulleted-list"><li style="list-style-type:disc">For a <strong>fixed mass </strong>of gas at <strong>constant </strong>temperature, <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mi>V</mi><mo>=</mo><mi>c</mi><mi>o</mi><mi>n</mi><mi>s</mi><mi>t</mi><mi>a</mi><mi>n</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">PV = constant</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6151em;"></span><span class="mord mathnormal">co</span><span class="mord mathnormal">n</span><span class="mord mathnormal">s</span><span class="mord mathnormal">t</span><span class="mord mathnormal">an</span><span class="mord mathnormal">t</span></span></span></span></span><span>﻿</span></span></li></ul><figure id="da89c967-7b2f-4760-827f-640e763eba47" class="equation"><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><div class="equation-container"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi>P</mi><mn>1</mn></msub><msub><mi>V</mi><mn>1</mn></msub><mo>=</mo><msub><mi>P</mi><mn>2</mn></msub><msub><mi>V</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">P_1V_1=P_2V_2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.2222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.2222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span></div></figure><figure id="eee1f8f0-539f-4688-90a2-8b24cfe98f2a" class="image" style="text-align:center"><a href="2%20Thermal%20Physics%20aece4e0cfb9f48cfb0f6f953269e6271/Untitled%203.png"><img style="width:349px" src="2%20Thermal%20Physics%20aece4e0cfb9f48cfb0f6f953269e6271/Untitled%203.png"/></a></figure></details></li></ul></details></li></ul><ul id="e75a5891-5060-4962-8223-219276ca7129" class="toggle"><li><details open=""><summary>(2.1.4) Thermodynamic Scale</summary><ul id="47fe6702-4019-4d89-963b-244dea19a5eb" class="bulleted-list"><li style="list-style-type:disc"><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi></mrow><annotation encoding="application/x-tex">T</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span></span></span></span></span><span>﻿</span></span> (<em>in K</em>) = <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi></mrow><annotation encoding="application/x-tex">θ</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">θ</span></span></span></span></span><span>﻿</span></span> (in °C) <span style="border-bottom:0.05em solid">+ 273</span></li></ul></details></li></ul><p id="a0d999db-7e8a-4546-a23a-4814d46b1507" class="">
+</p><p id="b8091374-eb6f-423d-b56a-08a94e27778c" class="block-color-orange_background"><strong> 2.2: Thermal Properties &amp; Temperature</strong></p><ul id="2c9cbde8-9619-4dbe-bf29-0254ee6ef11a" class="toggle"><li><details open=""><summary>(2.2.1) Thermal Expansion</summary><ul id="21cf2846-8ef4-4a1e-b4fb-8bf29984bc14" class="toggle"><li><details open=""><summary><span style="border-bottom:0.05em solid">Solids, Liquids &amp; Gases</span></summary><table id="050fff46-a52a-43d9-a743-87b65039a1f1" class="simple-table"><tbody><tr id="d646f0b6-adab-4177-a37a-f80f57bb0533"><td id="}{Mj" class=""></td><td id="=tlf" class=""><strong>Solids</strong></td><td id="H[qa" class=""><strong>Liquids</strong></td><td id="@G]b" class=""><strong>Gases</strong></td></tr><tr id="cca4bc6d-a80e-4a54-9a03-3cf59f768605"><td id="}{Mj" class=""><strong>Magnitude of Expansion</strong></td><td id="=tlf" class=""><mark class="highlight-blue"><strong>Least</strong></mark></td><td id="H[qa" class=""><mark class="highlight-yellow"><strong>In Between</strong></mark></td><td id="@G]b" class=""><mark class="highlight-red"><strong>Most</strong></mark></td></tr><tr id="8861367d-4e4f-4318-9a5f-325fcc800a62"><td id="}{Mj" class=""><strong>Explanation</strong></td><td id="=tlf" class="">the <strong>low energy </strong>molecules <strong>cannot overcome </strong>the intermolecular forces of attraction holding them together</td><td id="H[qa" class="">the molecules have <strong>enough energy </strong>to <strong>partially overcome </strong>the intermolecular forces of attraction holding them together</td><td id="@G]b" class="">the <strong>high energy </strong>molecules have enough energy to <strong>completely overcome </strong>the intermolecular forces holding them together</td></tr></tbody></table></details></li></ul><ul id="0a29a9d3-625b-4add-8410-753a2338d005" class="toggle"><li><details open=""><summary><span style="border-bottom:0.05em solid">Applications &amp; Consequences</span></summary><figure id="b5b7dfa2-9cb8-4f53-ab04-2d17e0bc7cdc" class="image"><a href="2%20Thermal%20Physics%20aece4e0cfb9f48cfb0f6f953269e6271/Untitled%204.png"><img style="width:528px" src="2%20Thermal%20Physics%20aece4e0cfb9f48cfb0f6f953269e6271/Untitled%204.png"/></a></figure></details></li></ul></details></li></ul><ul id="f951b810-9acb-4572-9481-c4a7d2be7ced" class="toggle"><li><details open=""><summary>(2.2.2) Internal Energy</summary><ul id="eba7e332-6ba7-4130-bfae-9aa260f698d6" class="bulleted-list"><li style="list-style-type:disc"><strong>Internal Energy </strong>is the <strong>total energy stored inside a system </strong>by the particles that make up the system due to their <span style="border-bottom:0.05em solid">motion and positions</span><ul id="326029d6-52bd-4770-8094-1436a3fd2682" class="bulleted-list"><li style="list-style-type:circle"><mark class="highlight-blue"><strong>Motion </strong></mark>= kinetic energy</li></ul><ul id="60c8e340-d5d4-4283-9c31-074dafb5f6f4" class="bulleted-list"><li style="list-style-type:circle"><mark class="highlight-red"><strong>Positions </strong></mark>= potential energy (<em>attraction</em>)</li></ul></li></ul><ul id="12666bb9-8644-400d-a5ba-65f827411778" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-teal"><strong>Increase </strong></mark><strong>in temperature </strong>of an object <mark class="highlight-teal"><strong>increases </strong></mark>its internal energy<ul id="d0584a20-1875-4775-ba4b-ca685dc6645f" class="bulleted-list"><li style="list-style-type:circle">Due to an <mark class="highlight-teal"><strong>increase </strong></mark>in the <strong>average kinetic energies</strong> of its particles</li></ul></li></ul></details></li></ul><ul id="1ce3a768-87b2-4f51-aca9-03987e5eade9" class="toggle"><li><details open=""><summary>(2.2.3) Specific Heat Capacity</summary><ul id="2981455e-e9c7-492e-a3c1-69f64a6b3ed6" class="toggle"><li><details open=""><summary><span style="border-bottom:0.05em solid">Formulae</span></summary><figure id="7b7af4be-d3f3-4f2b-9cb7-61c74f1f4854" class="equation"><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><div class="equation-container"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>C</mi><mo>=</mo><mfrac><mrow><mi mathvariant="normal">Δ</mi><mi>E</mi></mrow><mrow><mi>m</mi><mi mathvariant="normal">Δ</mi><mi>θ</mi></mrow></mfrac><mtext> </mtext><mtext> </mtext><mtext> </mtext><mtext> </mtext><mo lspace="0em" rspace="0em">→</mo><mtext> </mtext><mtext> </mtext><mtext> </mtext><mtext> </mtext><mi>E</mi><mo>=</mo><mi>I</mi><mi>V</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">C={\frac{ΔE}{mΔθ}}{\:}{\:}{\:}{\:}{\rightarrow}{\:}{\:}{\:}{\:}E=IVt</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.0463em;vertical-align:-0.686em;"></span><span class="mord"><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3603em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">m</span><span class="mord">Δ</span><span class="mord mathnormal" style="margin-right:0.02778em;">θ</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">Δ</span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mrel">→</span></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">I</span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="mord mathnormal">t</span></span></span></span></span></div></figure><ul id="437e29c7-1d50-4b01-bfce-49e73b27eb73" class="bulleted-list"><li style="list-style-type:disc">The <strong>energy required</strong> per <span style="border-bottom:0.05em solid">unit mass</span> per <span style="border-bottom:0.05em solid">unit temperature</span> increase<ul id="fdfdfcd3-0379-4295-b986-36fffe53e9a1" class="bulleted-list"><li style="list-style-type:circle">[c] <mark class="highlight-blue">SHC (J/kg°C)</mark> = [ΔE] <mark class="highlight-yellow">Thermal Energy (J) </mark>/ [m] <mark class="highlight-red">Mass (kg)</mark> <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo lspace="0em" rspace="0em">×</mo></mrow><annotation encoding="application/x-tex">{\times}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord"><span class="mord">×</span></span></span></span></span></span><span>﻿</span></span> [Δθ] <mark class="highlight-teal">ΔTemp. (°C)</mark><ul id="21ffdd0e-83d8-44b4-bfdb-fc4cbc7e229e" class="bulleted-list"><li style="list-style-type:square">(4.2.5) <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi><mo>=</mo><mi>P</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">E = Pt</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">Pt</span></span></span></span></span><span>﻿</span></span>  —&gt; [E] <mark class="highlight-yellow">Energy (J) </mark>=   [P] <mark class="highlight-yellow">Power (W) </mark><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo lspace="0em" rspace="0em">×</mo></mrow><annotation encoding="application/x-tex">{\times}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord"><span class="mord">×</span></span></span></span></span></span><span>﻿</span></span> [t] <mark class="highlight-teal">Time (s)</mark></li></ul><ul id="a87f5de0-9777-4910-b970-aab73fcbf034" class="bulleted-list"><li style="list-style-type:square">(4.2.5) <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo>=</mo><mi>I</mi><mi>V</mi></mrow><annotation encoding="application/x-tex">P=IV</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">I</span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span></span></span></span></span><span>﻿</span></span>  —&gt; [P] <mark class="highlight-yellow">Power (W)</mark> = [I] <mark class="highlight-blue">Current (A)</mark> <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo lspace="0em" rspace="0em">×</mo></mrow><annotation encoding="application/x-tex">{\times}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord"><span class="mord">×</span></span></span></span></span></span><span>﻿</span></span> [V] <mark class="highlight-red">P.D. (V)</mark></li></ul></li></ul></li></ul></details></li></ul><ul id="4e6f1f3d-a998-47e5-b572-7be2675d2440" class="toggle"><li><details open=""><summary><span style="border-bottom:0.05em solid">Investigation</span></summary><ul id="f5721f11-b2c5-45fa-8c29-908b445b353c" class="bulleted-list"><li style="list-style-type:disc">[ΔE] = [ΔIVt]   —&gt; Ammeter, Voltmeter, Stopwatch</li></ul><ul id="969956e1-3261-43f0-a0bc-ccf334bf8251" class="bulleted-list"><li style="list-style-type:disc">[m]                 —&gt; Known Mass</li></ul><ul id="48cac3d3-9e82-4251-9bc5-fa518812b1c3" class="bulleted-list"><li style="list-style-type:disc">[Δθ]                —&gt; Thermometer</li></ul></details></li></ul></details></li></ul><ul id="4bebadff-a8a7-4fcc-ac80-fd092962efeb" class="toggle"><li><details open=""><summary>(2.2.4) Change of State</summary><ul id="b8bfc24c-e670-4c31-98e4-be7158838aa1" class="toggle"><li><details open=""><summary><span style="border-bottom:0.05em solid">Melting &amp; Boiling</span></summary><ul id="e2026604-538a-49f0-aa1b-9325e2537d99" class="bulleted-list"><li style="list-style-type:disc">Energy input <strong>without</strong> a change in temperature<ul id="6a94c9de-8b64-47ca-a9b4-92898353cd95" class="bulleted-list"><li style="list-style-type:circle">Thermal energy is all transferred <strong>into overcoming </strong>intermolecular forces <br/><br/><mark class="highlight-blue">(</mark><mark class="highlight-blue"><em>endothermic</em></mark><mark class="highlight-blue">)</mark></li></ul></li></ul></details></li></ul><ul id="1564843f-b315-421b-a118-aa4e4ca95992" class="toggle"><li><details open=""><summary><span style="border-bottom:0.05em solid">Condensation &amp; Solidification</span></summary><ul id="b649c6df-4d11-4440-a42c-a7fcff6b892f" class="bulleted-list"><li style="list-style-type:disc">Energy input <strong>without</strong> a change in temperature<ul id="c98966c7-000b-4c07-a120-ccece4b4ebed" class="bulleted-list"><li style="list-style-type:circle">Thermal energy is transferred <strong>from forming </strong>intermolecular bonds <br/><br/><mark class="highlight-red">(</mark><mark class="highlight-red"><em>exothermic</em></mark><mark class="highlight-red">)</mark></li></ul></li></ul></details></li></ul><ul id="f8e63cb3-8903-4bf8-b01e-7414a92d450e" class="toggle"><li><details open=""><summary><span style="border-bottom:0.05em solid">Evaporation</span></summary><ul id="3a463dde-ef95-4734-b35c-d0aa65282c82" class="bulleted-list"><li style="list-style-type:disc">Occurs when more energetic molecules moving <strong>near the surface </strong>of the liquid have <strong>enough energy to escape</strong><ul id="14030f3b-3269-45fd-a3d0-1dc95b025677" class="bulleted-list"><li style="list-style-type:circle">At <strong>any temperature</strong> &amp; only at the <strong>surface </strong>of a liquid (<em>boiling is throughout</em>)</li></ul><ul id="7b5738b9-4140-4492-b423-6e0974ae9779" class="bulleted-list"><li style="list-style-type:circle">Average energy of the liquid is reduced, and thus <strong>cooled</strong></li></ul><ul id="9f9fa5a6-5a73-4a79-9e87-2e6e5a7480bc" class="bulleted-list"><li style="list-style-type:circle">Objects in contact with an evaporating liquid also <strong>cools </strong>the object</li></ul></li></ul><hr id="0f2acde9-c8d4-4ab9-83d1-489d19a5019f"/><ul id="b049f738-ac1a-4857-9f1e-59b862e2d0e4" class="bulleted-list"><li style="list-style-type:disc"><strong>Factors Affecting Evaporation</strong><ol type="1" id="847bbb76-7c7a-4f05-b176-7602fd7298f8" class="numbered-list" start="1"><li><strong>Temperature: </strong>affects the average kinetic energy of the molecules in a liquid</li></ol><ol type="1" id="7b8d8c89-3308-43fb-8166-034560e1e5d6" class="numbered-list" start="2"><li><strong>Surface area:</strong> affects the rate of evaporation</li></ol><ol type="1" id="ec365a65-f7b5-4d6a-a798-3dc50705590e" class="numbered-list" start="3"><li><strong>Air movement over a surface:</strong> affects the concentration gradient </li></ol></li></ul></details></li></ul></details></li></ul><p id="d3aedca7-fa14-4723-a130-32eabbac5719" class="">
+</p><p id="b5046e3a-942a-4094-827a-727494dcd1b8" class="block-color-orange_background"><strong> 2.3: Transfer of Thermal Energy</strong></p><p id="84f3ecce-dffd-4bc1-961b-8e8457817342" class=""><mark class="highlight-red"><em>(Most energy transfers have all three types of energy transfer occurring at the same time)</em></mark></p><ul id="9349a949-4104-43f8-b5c2-4ffe0cd875b7" class="toggle"><li><details open=""><summary>(2.3.1) Conduction</summary><ul id="2c4db135-2e04-4f18-a54f-047384ec60f6" class="toggle"><li><details open=""><summary><span style="border-bottom:0.05em solid">Mechanism of Conduction</span></summary><ul id="4e1c91e4-3858-4c8a-84b5-34cade078044" class="bulleted-list"><li style="list-style-type:disc"><strong>Conduction</strong> occurs when two solids of different temperatures come in contact with one another and thermal energy is transferred from the hotter object to the cooler object<ul id="db92646d-e0c6-4538-9eb8-c40a25b56f83" class="bulleted-list"><li style="list-style-type:circle">Particles bump into each other, transferring internal energy →<strong> until equilibrium</strong><ul id="578414ab-d203-4d55-bc0d-6c398aa270e6" class="block-color-red bulleted-list"><li style="list-style-type:square"><strong>(a) Atomic/Molecular Lattice Vibrations</strong></li></ul><ul id="f313a624-f347-471b-8b30-336c8b6ee280" class="block-color-blue bulleted-list"><li style="list-style-type:square"><strong>(b) Free/Delocalised Electron Collisions (</strong><strong><em>in metallic conductors</em></strong><strong>)</strong></li></ul></li></ul></li></ul></details></li></ul><ul id="60a53e5c-d95a-46e8-ba4a-378636a2d5bb" class="toggle"><li><details open=""><summary><span style="border-bottom:0.05em solid">Conduction in Fluids</span></summary><ul id="8c1bec94-8e42-4d8c-a476-f534b1dfd191" class="bulleted-list"><li style="list-style-type:disc">Thermal conduction is <mark class="highlight-red"><strong>bad </strong></mark>in:<ul id="7e6736f6-d75b-4453-876f-2399dbcaed90" class="bulleted-list"><li style="list-style-type:circle"><mark class="highlight-teal"><strong>Gases </strong></mark>because the particles are too <strong>widely spread apart</strong></li></ul><ul id="087da61a-316b-4973-b9f2-8216472a0413" class="bulleted-list"><li style="list-style-type:circle"><mark class="highlight-blue"><strong>Most liquids</strong></mark><strong> </strong>because the particles<strong> slide past each other</strong></li></ul></li></ul></details></li></ul><ul id="9f8e345c-e72d-4b3d-bb3c-7acf9aff11e4" class="toggle"><li><details open=""><summary><span style="border-bottom:0.05em solid">Investigating Conduction</span></summary><ul id="11b58925-14be-4289-8320-d33560e0ef2e" class="bulleted-list"><li style="list-style-type:disc"><strong>Wax </strong>on ends of a cylinder of [half metal] [half glass]<ul id="6f8a0394-964b-42eb-8337-adff751d6e5b" class="bulleted-list"><li style="list-style-type:circle">Heat middle (<em>metal-side will melt first</em>)</li></ul></li></ul></details></li></ul></details></li></ul><ul id="4b5ab19a-3234-4147-b6ae-cade9c1f1e4b" class="toggle"><li><details open=""><summary>(2.3.2) Convection</summary><ul id="d6bde8fe-00a3-45a1-be41-824ce810cc4c" class="toggle"><li><details open=""><summary><span style="border-bottom:0.05em solid">Mechanism of Convection</span></summary><ul id="e3cc2676-9000-42d3-8a66-30be55b21116" class="bulleted-list"><li style="list-style-type:disc">Method of thermal energy transfer in <strong>liquids </strong>and <strong>gases</strong><ul id="5998c801-ac26-4462-82df-31f6602a1c78" class="block-color-red bulleted-list"><li style="list-style-type:circle"><strong>Temperature affects density</strong></li></ul></li></ul><ul id="b656c9c7-1e39-4e29-a20f-18d1b80f8552" class="bulleted-list"><li style="list-style-type:disc">The difference in <strong>density </strong>of an <strong>unevenly heated/cooled</strong> fluid causes:<ul id="7a1dbf16-9e3c-488e-b38e-c1042fa68eea" class="bulleted-list"><li style="list-style-type:circle"><mark class="highlight-red"><strong>Heated </strong></mark>fluid to <mark class="highlight-red"><strong>rise </strong></mark>→ burners</li></ul><ul id="24ebc717-6de2-4b2b-a427-21160746f240" class="bulleted-list"><li style="list-style-type:circle"><mark class="highlight-blue"><strong>Cooled </strong></mark>fluid to <mark class="highlight-blue"><strong>sink </strong></mark>→ air conditioner</li></ul><ul id="422c02ac-da2c-490b-8756-b54da831979c" class="bulleted-list"><li style="list-style-type:circle"><strong>Convection currents </strong></li></ul></li></ul></details></li></ul><ul id="8993f5da-6d88-4e0f-8cf6-59769ea88143" class="toggle"><li><details open=""><summary><span style="border-bottom:0.05em solid">Investigating Convection</span></summary><ul id="bcbde763-d2f4-4e6e-ae04-cc42a0d9cc7a" class="bulleted-list"><li style="list-style-type:disc">Convection currents can be demonstrated using <strong>crystals of potassium permanganate</strong><ul id="faa2d0da-4738-4af3-aee9-708932e78e37" class="bulleted-list"><li style="list-style-type:circle"><strong>Purple</strong>; only dissolves in <strong>hot water</strong></li></ul><figure id="7872273f-508a-4fd7-b2a5-14719e213de3" class="image" style="text-align:center"><a href="2%20Thermal%20Physics%20aece4e0cfb9f48cfb0f6f953269e6271/Untitled%205.png"><img style="width:336px" src="2%20Thermal%20Physics%20aece4e0cfb9f48cfb0f6f953269e6271/Untitled%205.png"/></a></figure></li></ul></details></li></ul></details></li></ul><ul id="defe0409-0245-473a-ade0-09520f059145" class="toggle"><li><details open=""><summary>(2.3.3) Radiation</summary><ul id="fabaa8e9-c530-4fb7-bcdd-90d5cae468cc" class="toggle"><li><details open=""><summary><span style="border-bottom:0.05em solid">Mechanism of Infrared Radiation</span></summary><ol type="1" id="423818a2-344a-4445-8ad5-d15fa529b9f0" class="numbered-list" start="1"><li><strong>All objects</strong> give off thermal radiation</li></ol><ol type="1" id="3ef3ec97-71b0-4df3-80fb-9c0ec3875b57" class="numbered-list" start="2"><li>Part of the <strong>electromagnetic spectrum</strong> (<em>infrared radiation</em>)</li></ol><ol type="1" id="8a78c77f-340f-4840-b914-aa0a08eac9ff" class="numbered-list" start="3"><li>Does <strong>not </strong>require a <strong>medium</strong> (<em>can travel in a vacuum</em>)</li></ol></details></li></ul><ul id="afd8a944-93da-41c2-8fce-eb360eccc7b4" class="toggle"><li><details open=""><summary><span style="border-bottom:0.05em solid">Thermal Equilibrium</span></summary><ul id="f285758a-de4f-485a-b253-b03656633414" class="bulleted-list"><li style="list-style-type:disc">As an object <mark class="highlight-blue"><strong>absorbs </strong></mark><strong>infrared radiation </strong>it <strong>becomes </strong><mark class="highlight-red"><strong>hotter</strong></mark></li></ul><ul id="5a27682e-9692-4e1d-99ad-071bec74cce2" class="bulleted-list"><li style="list-style-type:disc">As an object <strong>becomes </strong><mark class="highlight-red"><strong>hotter </strong></mark>it also <mark class="highlight-red"><strong>emits </strong></mark><strong>more infrared radiation</strong></li></ul><ul id="4eac6640-78f7-4f0c-a80c-bced569d086b" class="bulleted-list"><li style="list-style-type:disc">Equilibrium is when it <strong>absorbs &amp; emits</strong> radiation at the <strong>same rate </strong>(<em>constant temp.</em>)<ul id="b50ce625-07a5-4cfa-8b43-163cf33af7ea" class="bulleted-list"><li style="list-style-type:circle"><mark class="highlight-blue"><strong>Cooling down: </strong></mark>an object <mark class="highlight-red"><strong>transfers </strong></mark><strong>away </strong>energy at a <strong>higher rate </strong>than it <strong>receives </strong>it</li></ul><ul id="33557d0c-63b3-480e-a54e-40315f5ba194" class="bulleted-list"><li style="list-style-type:circle"><mark class="highlight-red"><strong>Heating up:</strong></mark><strong> </strong>an object <mark class="highlight-blue"><strong>receives </strong></mark>energy at a <strong>higher rate</strong> than it <strong>transfers it away</strong></li></ul><ul id="85f256c3-8389-46c8-a915-688a98191da4" class="bulleted-list"><li style="list-style-type:circle">This process will <strong>always </strong>move towards thermal equilibrium</li></ul></li></ul></details></li></ul><ul id="21379d9a-3b25-49a3-983a-cf5c79e1d4d5" class="toggle"><li><details open=""><summary><span style="border-bottom:0.05em solid">Factors of IR Absorption &amp; Emission</span></summary><ol type="1" id="4bea8b10-7e2f-48a0-958d-e2d37d9fdb3d" class="numbered-list" start="1"><li>Surface Area (<em>more area for radiation to be absorbed/emitted from</em>)</li></ol><ol type="1" id="b7d1c9b8-bac6-44bf-9f7b-ad178571761a" class="numbered-list" start="2"><li>Surface Colour &amp; Texture<table id="6b1b2ec1-055c-44d2-a768-4d9c7e846b99" class="simple-table"><thead class="simple-table-header"><tr id="616f17bd-22d1-4295-865d-a2dc3e1e29e6"><th id="ChMj" class="simple-table-header-color simple-table-header" style="width:145.00000762939453px"><strong>Colour</strong></th><th id="tb~u" class="simple-table-header-color simple-table-header" style="width:164.08929443359375px"><strong>Absorption</strong></th><th id="__IJ" class="simple-table-header-color simple-table-header" style="width:157.00000762939453px"><strong>Emission</strong></th></tr></thead><tbody><tr id="7380e092-c3da-43c4-a0e4-fbc874f80720"><td id="ChMj" class="" style="width:145.00000762939453px"><strong>Black</strong></td><td id="tb~u" class="" style="width:164.08929443359375px"><mark class="highlight-teal">Good</mark></td><td id="__IJ" class="" style="width:157.00000762939453px"><mark class="highlight-teal">Good</mark></td></tr><tr id="f094bed4-08bd-400b-8ddf-59674864a84f"><td id="ChMj" class="" style="width:145.00000762939453px">Dull/Dark</td><td id="tb~u" class="" style="width:164.08929443359375px"><mark class="highlight-teal">Reasonable</mark></td><td id="__IJ" class="" style="width:157.00000762939453px"><mark class="highlight-teal">Reasonable</mark></td></tr><tr id="3a8a3ef1-e3d2-41ab-b9ff-75a75af1c3b0"><td id="ChMj" class="" style="width:145.00000762939453px"><mark class="highlight-gray">White</mark></td><td id="tb~u" class="" style="width:164.08929443359375px"><mark class="highlight-red">Poor</mark></td><td id="__IJ" class="" style="width:157.00000762939453px"><mark class="highlight-red">Poor</mark></td></tr><tr id="c775dd28-eda7-4b5e-8331-367179a7c017"><td id="ChMj" class="" style="width:145.00000762939453px"><strong><mark class="highlight-gray">Shiny</mark></strong></td><td id="tb~u" class="" style="width:164.08929443359375px"><mark class="highlight-red">Very Poor</mark> (<em><strong>reflects</strong></em>)</td><td id="__IJ" class="" style="width:157.00000762939453px"><mark class="highlight-red">Very Poor</mark></td></tr></tbody></table></li></ol></details></li></ul><ul id="5b5f2437-5a70-495a-9e56-880b4043a1c4" class="toggle"><li><details open=""><summary><span style="border-bottom:0.05em solid">Demonstrating Radiation</span></summary><ul id="3ad14f0c-1be9-4ba1-880a-8c7deca3d4b1" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-red"><strong>Emitter:</strong></mark><strong> </strong>black &amp; white container of hot water<ul id="126a3814-6b04-486c-a905-d3331e8ccd35" class="bulleted-list"><li style="list-style-type:circle">(<em>black container will cool first</em>)</li></ul></li></ul><ul id="ad9e7c6f-46a5-495c-b471-baeb85b2e233" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-blue"><strong>Absorber:</strong></mark><mark class="highlight-blue"> </mark>2 thermometers covered in black or white, around fire <ul id="977de2f2-018e-4164-8274-99e4d470985e" class="bulleted-list"><li style="list-style-type:circle">(<em>black thermometer shows hotter</em>)</li></ul></li></ul></details></li></ul><ul id="953d338a-adc2-4d34-8b2f-8b06df2b9197" class="toggle"><li><details open=""><summary><span style="border-bottom:0.05em solid">The Greenhouse Effect</span></summary><ul id="8bb9fd73-e326-47b2-8d04-25ca9751b998" class="bulleted-list"><li style="list-style-type:disc">The <strong>temperature of the Earth </strong>is affected by <strong>factors controlling the balance </strong>between <strong>incoming radiation </strong>and <strong>radiation emitted </strong>from the Earth’s surface<ul id="7e39a8ba-627d-4329-bedb-6f961476efad" class="bulleted-list"><li style="list-style-type:circle">Earth gets radiation from the Sun and reflects most of it back</li></ul><ul id="43bf868d-1d93-4b25-9398-38fd4afa0240" class="bulleted-list"><li style="list-style-type:circle">Gases in the atmosphere (greenhouse gases) absorb and reflect black longer-wavelength infrared radiation from the Earth and prevents heat from escaping into space (<em>warming</em>)<ul id="8ea7ad12-b5a4-42d5-b0e9-7097eb7033bf" class="bulleted-list"><li style="list-style-type:square">Water vapour</li></ul><ul id="b04c3f69-c3ef-4d5e-a308-ec242aec35b9" class="bulleted-list"><li style="list-style-type:square">Methane</li></ul><ul id="03285eee-e8ef-4156-ad61-45a79219360a" class="bulleted-list"><li style="list-style-type:square">CO2</li></ul></li></ul><figure id="69df7426-9249-49e8-8265-7baf82ab3b8a" class="image" style="text-align:center"><a href="2%20Thermal%20Physics%20aece4e0cfb9f48cfb0f6f953269e6271/Untitled%206.png"><img style="width:480px" src="2%20Thermal%20Physics%20aece4e0cfb9f48cfb0f6f953269e6271/Untitled%206.png"/></a></figure></li></ul></details></li></ul></details></li></ul><ul id="1f6c23ee-62bd-47ad-ae4d-a1bfdf608040" class="toggle"><li><details open=""><summary>(2.3.4) Applications</summary><ul id="2192a7a9-64b6-42e1-aca7-5a488e0e2c0a" class="bulleted-list"><li style="list-style-type:disc">Explain some of the basic everyday applications and consequences of conduction, convection and radiation, including:<ul id="225b9299-24ed-4a17-a6cd-793a4be875c4" class="bulleted-list"><li style="list-style-type:circle">(a) heating objects such as kitchen pans —&gt; conduction</li></ul><ul id="534a38e0-5d9d-46e3-b198-170851bc9df8" class="bulleted-list"><li style="list-style-type:circle">(b) heating a room by convection —&gt; convection</li></ul></li></ul><ul id="d31d5b6e-a84c-4753-9036-07b1e6e47430" class="bulleted-list"><li style="list-style-type:disc">Explain some of the complex applications and consequences of conduction, convection and radiation where more than one type of thermal energy transfer is significant, including:<ul id="0183e63e-d7da-4498-a3a6-7263edef9d56" class="bulleted-list"><li style="list-style-type:circle">(a) a fire burning wood or coal<ul id="825cb568-dde3-4e07-acbf-c3bacbdeb3f5" class="bulleted-list"><li style="list-style-type:square">Up = convection</li></ul><ul id="209b7d2a-928a-4cad-ab67-f93d7067ddd9" class="bulleted-list"><li style="list-style-type:square">Side = radiation</li></ul></li></ul><ul id="1dbd67a9-2756-43e9-af9f-acf5706de57c" class="bulleted-list"><li style="list-style-type:circle">(b) a radiator in a car<figure id="1349b925-a20e-4617-b568-6c5870b6a6e7" class="image"><a href="2%20Thermal%20Physics%20aece4e0cfb9f48cfb0f6f953269e6271/Untitled%207.png"><img style="width:288px" src="2%20Thermal%20Physics%20aece4e0cfb9f48cfb0f6f953269e6271/Untitled%207.png"/></a></figure></li></ul></li></ul></details></li></ul><p id="641829c6-ce63-433b-8e5b-9f7efda399f8" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

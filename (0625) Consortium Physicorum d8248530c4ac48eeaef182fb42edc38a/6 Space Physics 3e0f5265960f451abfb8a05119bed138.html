@@ -1,0 +1,680 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>6. Space Physics</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(0, 0, 0, 0.06); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="3e0f5265-960f-451a-bfb8-a05119bed138" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">🔭</span></div><h1 class="page-title">6. Space Physics</h1><p class="page-description"></p></header><div class="page-body"><p id="5c25c1d5-19c2-4f78-9ef6-12e6acfd2b04" class="">
+</p><p id="0c517576-b6d3-4c78-b9c1-acb82570eea3" class="block-color-purple_background"><strong> 6.1: Earth &amp; the Solar System</strong></p><ul id="c2b65d0a-c636-421f-a64b-5fc5294bedbb" class="toggle"><li><details open=""><summary>(6.1.1) The Earth</summary><ul id="02b5af68-7013-4dbc-ae99-0341169e49bf" class="bulleted-list"><li style="list-style-type:disc">The Earth &amp; Moon both spin and orbit <strong>anticlockwise</strong></li></ul><ul id="922ba289-8e24-4864-8211-611e8f21e2cb" class="toggle"><li><details open=""><summary><span style="border-bottom:0.05em solid">Earth’s Motion(s)</span></summary><ul id="11ccff93-b682-4a7d-bae2-0ea3645c0cf6" class="bulleted-list"><li style="list-style-type:disc">The Earth is a planet that <strong>rotates on its tilted (23.5°) axis</strong>, <span style="border-bottom:0.05em solid">once</span> in <strong>~24 hours</strong> </li></ul><ul id="3109b222-e862-4e90-936a-3c97d73b1ff0" class="bulleted-list"><li style="list-style-type:disc">The Earth orbits the Sun <span style="border-bottom:0.05em solid">once</span> in <strong>~365 days</strong><p id="2ebcb138-fe76-47a6-8094-73465fd5cfdb" class=""><span style="border-bottom:0.05em solid"><strong>How this Affects Shit:</strong></span></p><figure id="72726a53-be2a-4a14-80bd-8db7ff00b821" class="image"><a href="6%20Space%20Physics%203e0f5265960f451abfb8a05119bed138/Untitled.png"><img style="width:480px" src="6%20Space%20Physics%203e0f5265960f451abfb8a05119bed138/Untitled.png"/></a></figure></li></ul></details></li></ul><ul id="f37b3846-338f-4d82-8307-628870230baf" class="toggle"><li><details open=""><summary><span style="border-bottom:0.05em solid">The Moon</span></summary><ul id="0b7ce15b-7aa2-4f15-8206-0b96bf303fc6" class="bulleted-list"><li style="list-style-type:disc">The Moon is a <strong>natural satellite</strong> of the Earth</li></ul><ul id="51ce9a1c-cf09-4631-9525-ffa1e082365f" class="bulleted-list"><li style="list-style-type:disc">The Moon shines with <strong>reflected light </strong>from the Sun; it does not produce its own light</li></ul><ul id="35487403-2ccd-486c-8d4c-f9cb0753e362" class="bulleted-list"><li style="list-style-type:disc">It takes approximately <strong>one month (27-28 days)</strong> for the Moon to orbit the Earth<ul id="437c14e0-771d-4ce0-acfc-eaf6af88f02c" class="bulleted-list"><li style="list-style-type:circle">The Moon also revolves around <strong>its own axis</strong> in <strong>a month</strong> so always has the <strong>same side</strong> facing the Earth (<em>”dark side of the moon” is never seen</em>)</li></ul><figure id="84b84307-401b-432f-93bd-94cfc10ca9c2" class="image" style="text-align:center"><a href="6%20Space%20Physics%203e0f5265960f451abfb8a05119bed138/Untitled%201.png"><img style="width:432px" src="6%20Space%20Physics%203e0f5265960f451abfb8a05119bed138/Untitled%201.png"/></a><figcaption>1. New Moon<br/>2. Waxing Crescent Moon<br/>3. First Quarter Moon<br/>4. Waxing Gibbous Moon<br/>5. Full Moon<br/>6. Waning Gibbous Moon<br/>7. Last Quarter Moon<br/>8. Waning Crescent Moon<br/></figcaption></figure></li></ul></details></li></ul><ul id="5a11f477-e95b-4760-bf88-bdda6b000182" class="toggle"><li><details open=""><summary><span style="border-bottom:0.05em solid">Average Orbital Speed</span></summary><figure id="850c2fb5-a696-4da6-ad1c-000831f1966b" class="equation"><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><div class="equation-container"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>v</mi><mo>=</mo><mfrac><mrow><mn>2</mn><mi>π</mi><mi>r</mi></mrow><mi>T</mi></mfrac></mrow><annotation encoding="application/x-tex">v={\frac{2{\pi}r}{T}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.0074em;vertical-align:-0.686em;"></span><span class="mord"><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3214em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">2</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">π</span></span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></span></div></figure><ul id="e36710f7-9e59-4f65-bac0-1e5a4d2473f3" class="bulleted-list"><li style="list-style-type:disc">[v] <strong><mark class="highlight-blue">Average </mark></strong><mark class="highlight-blue">Speed (m/s)</mark> = [2πr] <mark class="highlight-red"><strong>Average </strong></mark><mark class="highlight-red">Circumference (m)</mark> / [T] <mark class="highlight-teal">Period (s)</mark><ul id="71a2219c-f220-4e91-ae2a-5040a68e51ea" class="bulleted-list"><li style="list-style-type:circle">Literally just <em>speed = distance/time</em></li></ul></li></ul></details></li></ul></details></li></ul><ul id="e8924c8f-87a2-40a6-8205-b1dd18bb7ab2" class="toggle"><li><details open=""><summary>(6.1.2) The Solar System</summary><ul id="641bd1de-4cc4-4166-bcc2-248a521b8591" class="toggle"><li><details open=""><summary><span style="border-bottom:0.05em solid">Bodies Within our System</span></summary><ul id="f0bbc457-38f2-43d0-8ad9-689c684e51a6" class="bulleted-list"><li style="list-style-type:disc">Planets, minor planets &amp; comets have <strong>elliptical </strong>orbits<ul id="0d73af90-4c9c-4886-8002-8b81622aa250" class="bulleted-list"><li style="list-style-type:circle">The Sun is <mark class="highlight-red"><strong>not</strong></mark> at the centre of the elliptical orbit <mark class="highlight-gray">(</mark><mark class="highlight-gray"><em>but rather </em></mark><strong><mark class="highlight-gray"><em>foci</em></mark></strong><mark class="highlight-gray"><em>, cus of how ellipses work</em></mark><mark class="highlight-gray">)</mark>, except when the orbit is approximately circular</li></ul></li></ul><ul id="cdefebf0-0b4e-4f5f-a847-05f28003b3e0" class="bulleted-list"><li style="list-style-type:disc"><strong>Satellites</strong> can be <strong>natural</strong> or <strong>artificial</strong></li></ul><ul id="a0fa73f2-3c7a-411e-ade6-7fcbed82df17" class="bulleted-list"><li style="list-style-type:disc"><strong>Asteroids </strong>are made of <span style="border-bottom:0.05em solid">rocks &amp; metals</span></li></ul><ul id="cbed128d-36f0-4ac3-afe3-515c7b89aed0" class="bulleted-list"><li style="list-style-type:disc"><strong>Comets</strong> are made of <span style="border-bottom:0.05em solid">dust &amp; ice</span></li></ul><table id="4c3d20cf-05cc-40ea-a902-4ec0e47d9c00" class="simple-table"><tbody><tr id="17dbb365-1e32-4ed1-a88f-70975e23ca8b"><th id="K\Yf" class="simple-table-header-color simple-table-header" style="width:130.29464721679688px">1 Star</th><td id="wVVD" class="" style="width:474.00000762939453px">The Sun</td></tr><tr id="5240343d-1b41-4439-8145-fddbe8c11142"><th id="K\Yf" class="simple-table-header-color simple-table-header" style="width:130.29464721679688px">8 Named Planets</th><td id="wVVD" class="" style="width:474.00000762939453px">1. Mercury<br/>2. Venus<br/>3. Earth<br/>4. Mars<br/>5. Jupiter<br/>6. Saturn<br/>7. Uranus<br/>8. Neptune<br/></td></tr><tr id="a0fd03a9-ea9f-4ca0-bbfb-86ff3f0b1989"><th id="K\Yf" class="simple-table-header-color simple-table-header" style="width:130.29464721679688px">Minor Planets &amp; Asteroids</th><td id="wVVD" class="" style="width:474.00000762939453px">Dwarf planets such as<strong> Pluto</strong> &amp; asteroids in <strong>the asteroid belt<br/><br/></strong>                                                             (<em>between Mars &amp; Jupiter</em>)</td></tr><tr id="1ee54a68-eba2-42d7-9faf-14270b46ba98"><th id="K\Yf" class="simple-table-header-color simple-table-header" style="width:130.29464721679688px">Moons</th><td id="wVVD" class="" style="width:474.00000762939453px">that orbit the planets</td></tr><tr id="2f5fbf72-6377-4741-a9b6-54a9711be7f3"><th id="K\Yf" class="simple-table-header-color simple-table-header" style="width:130.29464721679688px">Smaller Solar System bodies</th><td id="wVVD" class="" style="width:474.00000762939453px"><strong>Comets</strong> &amp; <strong>natural satellites</strong></td></tr></tbody></table></details></li></ul><ul id="fdab28f5-e665-4fd7-a47c-2dc64ed13ea6" class="toggle"><li><details open=""><summary><span style="border-bottom:0.05em solid">The Accretion Model for Solar System Formation</span></summary><figure id="834e9054-5e53-4be6-a8a9-49f8298d472f" class="image"><a href="6%20Space%20Physics%203e0f5265960f451abfb8a05119bed138/Untitled%202.png"><img style="width:636px" src="6%20Space%20Physics%203e0f5265960f451abfb8a05119bed138/Untitled%202.png"/></a></figure><ul id="b528823d-f099-4a9d-a1fe-5aacd4ae691e" class="bulleted-list"><li style="list-style-type:disc">The Sun was thought to have formed when <strong>gravitational attraction pulled together clouds of hydrogen dust and gas</strong> (called nebulae), <em>4.5 billion years ago</em><ul id="e1aa1193-3e85-4915-952e-b9f908580f7b" class="bulleted-list"><li style="list-style-type:circle">The planets were formed from the <strong>remnants of the disc cloud </strong>of matter left over from the <strong>nebula </strong>that formed the Sun —&gt; <strong>“Accretion Disc”</strong></li></ul></li></ul><table id="8d52719e-f117-4d1e-b81e-d953fc684c4b" class="simple-table"><tbody><tr id="742b4780-0e9a-401c-817f-5851cc54e413"><th id="_~E;" class="simple-table-header-color simple-table-header" style="width:196.15179443359375px">Inner &amp; Outer Planets (4:4)</th><td id=":bCt" class="" style="width:410.00000762939453px"><strong>Inner planets</strong> are rocky &amp; small<br/><br/><strong>Outer planets </strong>are gaseous &amp; large</td></tr><tr id="707404c9-3e14-4384-886e-310897651770"><th id="_~E;" class="simple-table-header-color simple-table-header" style="width:196.15179443359375px">Explanation</th><td id=":bCt" class="" style="width:410.00000762939453px"><strong>1. There is strong mutual attraction </strong>between <strong>gas &amp; dust in interstellar clouds, </strong>which contain <strong>many elements<br/><br/></strong>    - Very little <strong>heavy </strong>elements → inner plannets smaller<br/>    - Mostly <br/><strong>lighter </strong>elements → outer planets are larger<br/><br/><strong><br/>2. Out of randomness,<br/></strong> the particles <strong>aggregate</strong> in a <strong>centre,</strong> creating <strong>gravity</strong>,<strong> </strong>and also spinning with <strong>angular momentum</strong><br/><br/><br/><strong>3. A lot of Hydrogen</strong> accumulates to form <strong>the Sun<br/><br/>4. Accretion <br/></strong>slowly forms <strong>the planets,</strong> in an <strong>accretion disc</strong><br/><br/><br/><strong>5. The heat of the Sun</strong> doesn’t allow <strong>lighter molecules </strong>like <span style="border-bottom:0.05em solid">hydrogen, helium, water, or methane</span> to exist at a <strong>solid state</strong> in the planets <strong>closer to the Sun</strong><br/><br/><br/><strong>6. Inner planets </strong>are instead made of materials with<strong> high melting temperatures </strong>like <strong>metals<br/><br/>7. Outer planets<br/></strong> are where the lighter molecules can exist at <strong>solid states</strong><br/><br/><br/><strong>8. The Solar System cools</strong> and the <strong>outer planets</strong> also become more <strong>gaseous</strong> whilst the <strong>inner planets</strong> remain <strong>solid</strong></td></tr></tbody></table></details></li></ul><ul id="5d9c3319-febe-4b67-9822-6570147472d0" class="toggle"><li><details open=""><summary><span style="border-bottom:0.05em solid">Planetary Data</span></summary><table id="9039394a-9cc2-4709-834b-0b532c57ecb7" class="simple-table"><thead class="simple-table-header"><tr id="7c4080d6-bbf7-408a-9a6e-274deca6392d"><th id="JMDl" class="simple-table-header-color simple-table-header" style="width:102.00000762939453px">Planet</th><th id="^@IG" class="simple-table-header-color simple-table-header" style="width:94px">O. Distance (km)</th><th id="YXIX" class="simple-table-header-color simple-table-header" style="width:85px">Period</th><th id="~;MM" class="simple-table-header-color simple-table-header" style="width:82px">Density<br/>(kg/m³)<br/></th><th id="[fzH" class="simple-table-header-color simple-table-header" style="width:96px">Surface Temp. (°C)</th><th id="Qnyi" class="simple-table-header-color simple-table-header" style="width:139px">Uniform Surface Grav. FS (N/kg)</th></tr></thead><tbody><tr id="f2f1e0dc-ad89-40d1-9171-71b733fda760"><td id="JMDl" class="" style="width:102.00000762939453px">Mercury</td><td id="^@IG" class="" style="width:94px">57.9m</td><td id="YXIX" class="" style="width:85px">88 days</td><td id="~;MM" class="" style="width:82px"><mark class="highlight-red">5427</mark></td><td id="[fzH" class="" style="width:96px"><mark class="highlight-red">350</mark></td><td id="Qnyi" class="" style="width:139px">3.7</td></tr><tr id="cf210765-c8fe-447a-8e28-c4af5af3c9b1"><td id="JMDl" class="" style="width:102.00000762939453px">Venus</td><td id="^@IG" class="" style="width:94px">108m</td><td id="YXIX" class="" style="width:85px">225 days</td><td id="~;MM" class="" style="width:82px"><mark class="highlight-red">5243</mark></td><td id="[fzH" class="" style="width:96px"><mark class="highlight-red">460</mark></td><td id="Qnyi" class="" style="width:139px">8.9</td></tr><tr id="55cccb23-1d74-44ff-a896-f273c81c3e1e"><td id="JMDl" class="" style="width:102.00000762939453px">Earth</td><td id="^@IG" class="" style="width:94px">150m</td><td id="YXIX" class="" style="width:85px">365 days</td><td id="~;MM" class="" style="width:82px"><mark class="highlight-red">5514</mark></td><td id="[fzH" class="" style="width:96px"><mark class="highlight-red">20</mark></td><td id="Qnyi" class="" style="width:139px">9.8</td></tr><tr id="6375e70d-c4ac-4f3f-9209-1234aa7d5205"><td id="JMDl" class="" style="width:102.00000762939453px">Mars</td><td id="^@IG" class="" style="width:94px">228m</td><td id="YXIX" class="" style="width:85px">687 days</td><td id="~;MM" class="" style="width:82px"><mark class="highlight-red">3933</mark></td><td id="[fzH" class="" style="width:96px"><mark class="highlight-red">-23</mark></td><td id="Qnyi" class="" style="width:139px">3.7</td></tr><tr id="1795725b-d917-4dc4-827b-388775efeace"><td id="JMDl" class="" style="width:102.00000762939453px">Jupiter</td><td id="^@IG" class="" style="width:94px">779m</td><td id="YXIX" class="" style="width:85px">11.9 years</td><td id="~;MM" class="" style="width:82px"><mark class="highlight-blue">1326</mark></td><td id="[fzH" class="" style="width:96px"><mark class="highlight-blue">-120</mark></td><td id="Qnyi" class="" style="width:139px">23.1</td></tr><tr id="45a0ee28-9292-4c7a-b5d0-916626768dc9"><td id="JMDl" class="" style="width:102.00000762939453px">Saturn</td><td id="^@IG" class="" style="width:94px">1.43b</td><td id="YXIX" class="" style="width:85px">29.5 years</td><td id="~;MM" class="" style="width:82px"><mark class="highlight-blue">687</mark></td><td id="[fzH" class="" style="width:96px"><mark class="highlight-blue">-180</mark></td><td id="Qnyi" class="" style="width:139px">9.0</td></tr><tr id="9671a0eb-5a41-4672-b1ac-690fca6a937c"><td id="JMDl" class="" style="width:102.00000762939453px">Uranus</td><td id="^@IG" class="" style="width:94px">2.87b</td><td id="YXIX" class="" style="width:85px">75 years</td><td id="~;MM" class="" style="width:82px"><mark class="highlight-blue">1271</mark></td><td id="[fzH" class="" style="width:96px"><mark class="highlight-blue">-210</mark></td><td id="Qnyi" class="" style="width:139px">8.7</td></tr><tr id="7140e925-fc15-4549-8533-d9c69d535dea"><td id="JMDl" class="" style="width:102.00000762939453px">Neptune</td><td id="^@IG" class="" style="width:94px">4.50b</td><td id="YXIX" class="" style="width:85px">165 years</td><td id="~;MM" class="" style="width:82px"><mark class="highlight-blue">1638</mark></td><td id="[fzH" class="" style="width:96px"><mark class="highlight-blue">-220</mark></td><td id="Qnyi" class="" style="width:139px">11.0</td></tr></tbody></table></details></li></ul><ul id="56012713-8df0-4abc-9f9a-8fabff15cd75" class="toggle"><li><details open=""><summary><span style="border-bottom:0.05em solid">Light Speed</span></summary><ul id="9072e868-44f3-46a8-a8f0-8a5323f503cd" class="bulleted-list"><li style="list-style-type:disc"><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3</mn><mtext> </mtext><mo lspace="0em" rspace="0em">×</mo><mtext> </mtext><mn>1</mn><msup><mn>0</mn><mn>8</mn></msup><mtext> </mtext><mtext> </mtext><mi>m</mi><mi mathvariant="normal">/</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">3{\:}{\times}{\:}10^8{\:}{\:}m/s</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0641em;vertical-align:-0.25em;"></span><span class="mord">3</span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mord">×</span></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">8</span></span></span></span></span></span></span></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord mathnormal">m</span><span class="mord">/</span><span class="mord mathnormal">s</span></span></span></span></span><span>﻿</span></span>   —&gt; remember light speed is a <strong>speed</strong></li></ul></details></li></ul><ul id="d524564d-5c5d-4f21-8e07-d09a1ad270c0" class="toggle"><li><details open=""><summary><span style="border-bottom:0.05em solid">Gravitational Effects</span></summary><ul id="1e6eaaf7-1ff2-40cb-a847-e4dfe5c98c67" class="bulleted-list"><li style="list-style-type:disc"><strong>Gravitational attraction keeps an object in orbit </strong><ul id="a82b1e40-1770-4f7c-8ca9-6dbd87ced450" class="bulleted-list"><li style="list-style-type:circle">Greater mass = <mark class="highlight-blue">greater </mark>gravitational field strength</li></ul><ul id="d0677c6c-edc6-4fc1-ac70-90b5ae0f9e75" class="bulleted-list"><li style="list-style-type:circle">Greater distance = <mark class="highlight-red">weaker </mark>gravitational field strength</li></ul></li></ul><ul id="33b17f2e-70d9-430e-8d01-9081d315c48c" class="bulleted-list"><li style="list-style-type:disc">The Sun contains most of the <strong>mass </strong>of the Solar System<ul id="5644598a-747e-496c-870f-30742e2e953f" class="bulleted-list"><li style="list-style-type:circle"><strong>Orbitting = falling as much as the surface curves</strong></li></ul><ul id="fad8af97-0c22-4a5d-ad03-9031fc2f3bd3" class="bulleted-list"><li style="list-style-type:circle">Hence, the planets orbit the Sun</li></ul></li></ul><p id="c89415d7-9919-46f1-8801-17cc5030296c" class=""><span style="border-bottom:0.05em solid">As you get </span><strong><span style="border-bottom:0.05em solid">closer </span></strong><span style="border-bottom:0.05em solid">to the Sun:</span></p><table id="99aefb2d-1854-41c3-b35b-282cf2da7e29" class="simple-table"><tbody><tr id="a2d1579c-55c2-4f5c-87b6-6391766e9afa"><th id="CRwp" class="simple-table-header-color simple-table-header" style="width:188.00000762939453px">The Sun’s Gravitational Field Strength <span style="border-bottom:0.05em solid">Increases</span></th><td id="daGO" class="" style="width:369.00000762939453px">see above</td></tr><tr id="59740be8-8a88-42b0-8530-7e7260271194"><th id="CRwp" class="simple-table-header-color simple-table-header" style="width:188.00000762939453px">The Orbital Speeds of the Planets <span style="border-bottom:0.05em solid">Increase</span></th><td id="daGO" class="" style="width:369.00000762939453px">centripetal force (<em>gravitational attraction</em>) is greater</td></tr><tr id="97624323-0763-4ea3-b54a-e34b7d2ceee2"><th id="CRwp" class="simple-table-header-color simple-table-header" style="width:188.00000762939453px">Objects in an Elliptical Orbit Travel <span style="border-bottom:0.05em solid">Faster</span></th><td id="daGO" class="" style="width:369.00000762939453px">Gravitational potential energy —&gt; Kinetic energy<br/>(<br/><em>other way around when getting further</em>)</td></tr></tbody></table></details></li></ul></details></li></ul><p id="b80edb77-15b8-49a3-9c10-af53d305db99" class="">
+</p><p id="7bc74149-491d-496c-b13d-d9c55c73bb94" class="block-color-purple_background"><strong>me 6.2: Stars &amp; the Universe</strong></p><ul id="76f309a4-5db3-4e99-b182-fe04f7ba03f1" class="toggle"><li><details open=""><summary>(6.2.1) The Sun</summary><ol type="1" id="e33b5672-1923-4870-a1ac-0b5e38cf05be" class="numbered-list" start="1"><li>The Sun is a star of <strong>medium size</strong></li></ol><ol type="1" id="7400fb1e-9a34-4a12-bb8d-802c3a49796a" class="numbered-list" start="2"><li>The Sun consists mostly of<strong> hydrogen and helium</strong></li></ol><ol type="1" id="3005e5d2-27fa-4a97-8bbb-fa251eaf1609" class="numbered-list" start="3"><li>The Sun radiates most of its energy in the <strong>infrared, visible and ultraviolet rays</strong></li></ol></details></li></ul><ul id="47e77797-a896-4cd6-8e0b-3656a221f64e" class="toggle"><li><details open=""><summary>(6.2.2) Stars</summary><ul id="10c6736c-5316-4e13-a1b8-74df11a894ba" class="toggle"><li><details open=""><summary><span style="border-bottom:0.05em solid">Astronomical Composition</span></summary><ol type="1" id="40e51fc5-ff7a-45ff-8bf9-4429ced258f1" class="numbered-list" start="1"><li>Galaxies are each made up of <strong>many billions of stars</strong></li></ol><ol type="1" id="10dad111-a56e-4168-9c62-31c55c5b32ce" class="numbered-list" start="2"><li>The Sun is a star in the galaxy known as the <strong>Milky Way</strong></li></ol><ol type="1" id="b5364594-9c00-48ec-99d2-0328a01aa55f" class="numbered-list" start="3"><li>Other stars that make up the Milky Way are <strong>much further away</strong> from the Earth than the Sun is from the Earth</li></ol><ol type="1" id="45ec3f97-2ad3-426e-b242-9d8680ea3534" class="numbered-list" start="4"><li>Astronomical distances can be measured in <strong>light-years</strong>, where one light-year is the<br/>distance travelled in (the <br/><strong>vacuum </strong>of) space by light in one year</li></ol><ol type="1" id="ec8c40bd-0518-4030-bd13-05515b901113" class="numbered-list" start="5"><li>One light-year is <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext> </mtext><mn>9.5</mn><mtext> </mtext><mo lspace="0em" rspace="0em">×</mo><mtext> </mtext><mn>1</mn><msup><mn>0</mn><mn>15</mn></msup><mtext> </mtext><mi>m</mi></mrow><annotation encoding="application/x-tex">{\:}9.5{\:}{\times}{\:}10^{15}{\:}m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8974em;vertical-align:-0.0833em;"></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord">9.5</span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mord">×</span></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">15</span></span></span></span></span></span></span></span></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord mathnormal">m</span></span></span></span></span><span>﻿</span></span></li></ol></details></li></ul><ul id="1ee5a05e-7e1a-4218-abbf-99c345641f47" class="toggle"><li><details open=""><summary><span style="border-bottom:0.05em solid">Nuclear Reactions in Stars</span></summary><ul id="113e0218-26af-4286-bce5-a1e378d82931" class="bulleted-list"><li style="list-style-type:disc">Stars are powered by <strong>nuclear reactions that release energy </strong></li></ul><ul id="ef213d34-a32a-4782-96ad-f3b6d3d167cb" class="bulleted-list"><li style="list-style-type:disc">In <strong>stable </strong>stars, the nuclear reactions involve <strong>the </strong><span style="border-bottom:0.05em solid"><strong>fusion</strong></span><strong> of hydrogen into helium</strong><ul id="f96be1ea-d9cb-41cd-b8bc-777b89ac8c14" class="bulleted-list"><li style="list-style-type:circle">Hydrogen’s <strong>isotopes</strong>:<strong> deuterium &amp; tritium</strong></li></ul></li></ul><figure id="b1a26889-cec9-4edc-b3a9-c6bd7a522b68" class="equation"><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><div class="equation-container"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msubsup><mrow></mrow><mn>1</mn><mn>2</mn></msubsup><mi>H</mi><mtext> </mtext><mo>+</mo><mtext> </mtext><msubsup><mrow></mrow><mn>1</mn><mn>3</mn></msubsup><mi>H</mi><mtext> </mtext><mtext> </mtext><mtext> </mtext><mtext> </mtext><mo lspace="0em" rspace="0em">→</mo><mtext> </mtext><mtext> </mtext><mtext> </mtext><mtext> </mtext><mtext> </mtext><msubsup><mrow></mrow><mn>2</mn><mn>4</mn></msubsup><mi>H</mi><mi>e</mi><mtext> </mtext><mo>+</mo><mtext> </mtext><msubsup><mrow></mrow><mn>0</mn><mn>1</mn></msubsup><mi>n</mi><mtext> </mtext><mo>+</mo><mtext> </mtext><mi>e</mi><mi>n</mi><mi>e</mi><mi>r</mi><mi>g</mi><mi>y</mi></mrow><annotation encoding="application/x-tex">{^2_1}H{\:}+{\:}{^3_1}H{\:}{\:}{\:}{\:}{\rightarrow}{\:}{\:}{\:}{\:}{\:}{^4_2}He{\:}+{\:}{^1_0}n{\:}+{\:}energy</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.1111em;vertical-align:-0.247em;"></span><span class="mord"><span class="mord"><span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8641em;"><span style="top:-2.453em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span></span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.1111em;vertical-align:-0.247em;"></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mord"><span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8641em;"><span style="top:-2.453em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span></span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mrel">→</span></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mord"><span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8641em;"><span style="top:-2.453em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">4</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span></span><span class="mord mathnormal">He</span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.1111em;vertical-align:-0.247em;"></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mord"><span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8641em;"><span style="top:-2.453em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span></span><span class="mord mathnormal">n</span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord mathnormal">e</span><span class="mord mathnormal">n</span><span class="mord mathnormal" style="margin-right:0.02778em;">er</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span></span></div></figure><figure id="6108240f-bcc2-4a33-a998-e87012214c71" class="image" style="text-align:center"><a href="6%20Space%20Physics%203e0f5265960f451abfb8a05119bed138/Untitled%203.png"><img style="width:384px" src="6%20Space%20Physics%203e0f5265960f451abfb8a05119bed138/Untitled%203.png"/></a></figure></details></li></ul><ul id="a32bbcc0-bdd1-4a6e-a7f9-0312309308aa" class="toggle"><li><details open=""><summary><span style="border-bottom:0.05em solid">The Life Cycle of a Star</span></summary><ul id="7b9e2b6e-d947-4ca6-8149-4f835e6a62be" class="toggle"><li><details open=""><summary><span style="border-bottom:0.05em solid">The Stages of Stellar Evolution</span></summary><table id="65fd430d-7204-405f-bc43-f5d8703cf0fa" class="simple-table"><tbody><tr id="bf8ba407-fdff-444b-8e44-5d76139176e3"><th id=":H:m" class="simple-table-header-color simple-table-header" style="width:145.00000762939453px">1. Interstellar Cloud</th><td id="xlnL" class="" style="width:438.0000305175781px">clouds of gas and dust containing hydrogen, between stars</td></tr><tr id="c8c67816-b4e1-4d1b-93ff-99c93ad58333"><th id=":H:m" class="simple-table-header-color simple-table-header" style="width:145.00000762939453px">2. Protostar</th><td id="xlnL" class="" style="width:438.0000305175781px">an interstellar cloud collapsing and <strong>increasing in temperature</strong> because of its i<strong>nternal gravitational attraction</strong></td></tr><tr id="ad6d8d73-1b62-4075-8383-c6ef2e1eb19a"><th id=":H:m" class="simple-table-header-color simple-table-header" style="width:145.00000762939453px">3. Stable Star</th><td id="xlnL" class="" style="width:438.0000305175781px">nuclear fusion takes place, and the star becomes <strong>stable </strong>when the i<strong>nward force of gravitational attraction</strong> is balanced by <strong>an outward force (radiation pressure)</strong> due to the <strong>high temperature</strong> in its centre</td></tr><tr id="283201c2-4bdf-4624-8f32-b89ec7eb8b15"><th id=":H:m" class="simple-table-header-color simple-table-header" style="width:145.00000762939453px">3.5. Old Age</th><td id="xlnL" class="" style="width:438.0000305175781px">All stars eventually <strong>run out of hydrogen</strong> as fuel for the nuclear reaction, as it has been <strong>converted to helium</strong></td></tr></tbody></table><p id="980876d5-d91e-4e5b-b3bd-15d836418a13" class=""><span style="border-bottom:0.05em solid"><strong>Less Massive Stars</strong></span></p><table id="5cfc2e95-d069-46b1-888f-2b300435d9d8" class="simple-table"><tbody><tr id="d65dee6a-a672-4c6b-817b-86c6ec4aaa67"><th id="zdDS" class="simple-table-header-color simple-table-header" style="width:146.61607360839844px">4. Red Giant</th><td id="LIUM" class="" style="width:436.0000305175781px">the <strong>nuclear fusion of helium and then carbon</strong> also takes place, and then core becomes hotter, <strong>increasing radiation pressure</strong>, and <strong>expanding </strong>the star —&gt; surface is cooler (<em>further</em>) and becomes <strong>red</strong></td></tr><tr id="f35349d4-015f-45f3-8af0-5839a1a18764"><th id="zdDS" class="simple-table-header-color simple-table-header" style="width:146.61607360839844px">5. White Dwarf</th><td id="LIUM" class="" style="width:436.0000305175781px"><strong>fusion stops when helium is too depleted</strong>, and the <strong>core</strong> <strong>collases </strong>due to gravitation<br/>”white” —&gt; core is still hot  <br/>”dwarf” —&gt; small star<br/></td></tr><tr id="e3639384-e609-40b2-9868-96b2af41bd41"><th id="zdDS" class="simple-table-header-color simple-table-header" style="width:146.61607360839844px">5. Planetary Nebula</th><td id="LIUM" class="" style="width:436.0000305175781px">the <strong>outer shell </strong>of a red giant <strong>does not collapse </strong>as the gravitation is not strong enough, and <strong>radiation pressure pushes it away</strong> to form a planetary nebula (<em>gas and dust</em>)</td></tr></tbody></table><p id="4a7cb7b8-70df-4481-b22d-3ea0599525f2" class=""><span style="border-bottom:0.05em solid"><strong>More Massive Stars</strong></span></p><table id="e2d34cad-ba3b-446c-a1e8-1ebc19a4a02c" class="simple-table"><tbody><tr id="2cc39e93-9c4d-49bb-9de2-8f393cf683a2"><th id="=@&gt;p" class="simple-table-header-color simple-table-header" style="width:147.00000762939453px">4. Red Supergiant</th><td id="im@;" class="" style="width:437.00000762939453px">the <strong>nuclear fusion of helium AND heavier elements</strong> like <strong>carbon, oxygen, even iron</strong> also takes place, and then core becomes hotter, <strong>GREATLY increasing radiation pressure</strong>, and <strong>expanding </strong>the star <br/>—&gt; surface is cooler (<br/><em>further</em>) and becomes <strong>red</strong></td></tr><tr id="f82e9d4e-d6e5-4aa4-8f9b-565c64fec92c"><th id="=@&gt;p" class="simple-table-header-color simple-table-header" style="width:147.00000762939453px">5. Supernova</th><td id="im@;" class="" style="width:437.00000762939453px"><strong>fusion stops</strong>, but the <strong>gravitation is strong enough</strong> to collapse both the core AND the outer shell into a <strong>very high temperature core</strong> and leads to an <strong>explosion </strong>that <strong>creates heavier elements</strong> (Iron+)</td></tr><tr id="4783da58-e0fa-4bba-aec8-443ec95c1412"><th id="=@&gt;p" class="simple-table-header-color simple-table-header" style="width:147.00000762939453px">6. Neutron Star or Black Hole</th><td id="im@;" class="" style="width:437.00000762939453px">after the supernova, <strong>depending on mass</strong>, the <strong>core </strong>either becomes:<br/><br/><strong>1. Neutron Star: </strong>pure neutrons (<em>less mass</em>)<br/><br/><strong>2. Black Hole: </strong>strong gravitation (<em>more mass</em>)</td></tr><tr id="256c6807-3f9a-4e2b-aa2d-a4c86b5e3aef"><th id="=@&gt;p" class="simple-table-header-color simple-table-header" style="width:147.00000762939453px">6. Nebula</th><td id="im@;" class="" style="width:437.00000762939453px">a cloud of elements is <strong>pushed into space</strong> by the supernova, and may <strong>form new stars</strong> with orbiting planets</td></tr></tbody></table></details></li></ul><ul id="6f4a2ed5-946f-4703-b4fe-6eeecd77b8ab" class="toggle"><li><details open=""><summary><span style="border-bottom:0.05em solid">A Diagram</span></summary><figure id="cb6a2534-a4e7-4d65-a516-c85eaf413735" class="image" style="text-align:center"><a href="6%20Space%20Physics%203e0f5265960f451abfb8a05119bed138/Untitled%204.png"><img style="width:432px" src="6%20Space%20Physics%203e0f5265960f451abfb8a05119bed138/Untitled%204.png"/></a></figure><figure id="d31cd2f1-4ea9-468a-84d5-0f90622c4c9a" class="image" style="text-align:center"><a href="6%20Space%20Physics%203e0f5265960f451abfb8a05119bed138/Untitled%205.png"><img style="width:432px" src="6%20Space%20Physics%203e0f5265960f451abfb8a05119bed138/Untitled%205.png"/></a></figure></details></li></ul></details></li></ul></details></li></ul><ul id="3841933c-35ee-469e-bbb9-eada029fb94f" class="toggle"><li><details open=""><summary>(6.2.3) The Universe</summary><ul id="339c9ed3-e260-4869-9aca-896a52bf7a16" class="toggle"><li><details open=""><summary><span style="border-bottom:0.05em solid">The Milky Way</span></summary><ol type="1" id="ce2713ab-4db1-407d-a809-435fdb8a75b7" class="numbered-list" start="1"><li>The Milky Way is one of many billions of galaxies making up the Universe </li></ol><ol type="1" id="3892785d-586f-44e0-96ee-fc830022f68e" class="numbered-list" start="2"><li><strong>The diameter</strong> of the Milky Way is approximately <strong>100,000 light-years</strong></li></ol></details></li></ul><ul id="71e74546-4db1-4747-8997-8bebe15fa9a5" class="toggle"><li><details open=""><summary><span style="border-bottom:0.05em solid">Cosmic Redshift</span></summary><ul id="8573dab9-310f-4d6a-a81f-9986ffdf7a43" class="toggle"><li><details open=""><summary><span style="border-bottom:0.05em solid">The Doppler Effect </span></summary><ul id="5cafe945-da26-4f85-a372-420084c0322e" class="bulleted-list"><li style="list-style-type:disc">A <strong>moving object</strong> will cause the waves to change in wavelength and frequency:<table id="0d0dc068-4473-4a50-abd7-aae50ca42d82" class="simple-table"><thead class="simple-table-header"><tr id="7179503b-f73d-4b83-aa8b-34de8de0a2a8"><th id="QxIT" class="simple-table-header-color simple-table-header" style="width:225.00001525878906px"></th><th id="uMDj" class="simple-table-header-color simple-table-header" style="width:160px">Wavelength</th><th id="AU~c" class="simple-table-header-color simple-table-header" style="width:154.00000762939453px">Frequency</th></tr></thead><tbody><tr id="9614fa60-9623-47bf-8ead-f70c4916d4ef"><th id="QxIT" class="simple-table-header-color simple-table-header" style="width:225.00001525878906px">Waves <mark class="highlight-blue">in Front</mark> of the Source</th><td id="uMDj" class="" style="width:160px"><mark class="highlight-red">Decrease</mark></td><td id="AU~c" class="" style="width:154.00000762939453px"><mark class="highlight-blue">Increase</mark></td></tr><tr id="63b0d7a7-abc6-4261-a970-d12951d3c57e"><th id="QxIT" class="simple-table-header-color simple-table-header" style="width:225.00001525878906px">Waves <mark class="highlight-red">Behind</mark> the Source</th><td id="uMDj" class="" style="width:160px"><mark class="highlight-blue">Increase</mark></td><td id="AU~c" class="" style="width:154.00000762939453px"><mark class="highlight-red">Decrease</mark></td></tr></tbody></table></li></ul><figure id="8e981f0d-6e60-4f26-851c-9e0324f8a159" class="image" style="text-align:center"><a href="6%20Space%20Physics%203e0f5265960f451abfb8a05119bed138/Untitled%206.png"><img style="width:480px" src="6%20Space%20Physics%203e0f5265960f451abfb8a05119bed138/Untitled%206.png"/></a></figure></details></li></ul><ul id="8338d0ce-3def-4aac-a573-429e16ba66ed" class="bulleted-list"><li style="list-style-type:disc">Redshift is the <strong>increase in the observed wavelength</strong> of electromagnetic radiation emitted from <strong>receding</strong> stars and galaxies<ul id="617ee1c2-2069-4f0e-a2e6-a171eea1b5b3" class="bulleted-list"><li style="list-style-type:circle">Light emitted from <strong>distant galaxies</strong> appears <strong>redshifted </strong>in comparison with light emitted on Earth (<em>further away = more redshift</em>)</li></ul><ul id="b3cc669e-b1e8-4b78-a584-67dceb13349b" class="bulleted-list"><li style="list-style-type:circle">Redshift in the light from distant galaxies is <strong>evidence </strong>that <strong>the Universe is expanding </strong>and supports<strong> the Big Bang Theory</strong></li></ul><figure id="f5d83560-c758-4439-9f72-e469f0cefe81" class="image" style="text-align:center"><a href="6%20Space%20Physics%203e0f5265960f451abfb8a05119bed138/Untitled%207.png"><img style="width:432px" src="6%20Space%20Physics%203e0f5265960f451abfb8a05119bed138/Untitled%207.png"/></a></figure></li></ul></details></li></ul><ul id="1489c80b-d6a2-43e6-97db-20f5b16a11bd" class="toggle"><li><details open=""><summary><span style="border-bottom:0.05em solid">Cosmic Microwave Background Radiation</span></summary><ul id="231e8863-0e56-4592-8a4c-7bd2859ccdca" class="bulleted-list"><li style="list-style-type:disc">CMBR is the<strong> microwave radiation</strong> of a specific frequency that is <strong>observed at all points </strong>in space around us<ul id="10575f90-0164-4cae-a844-e90c12bf9874" class="bulleted-list"><li style="list-style-type:circle">CMBR was produced by the <strong>thermal radiation</strong> of the <strong>hot and dense environment of the early Universe</strong> and that this radiation has been <strong>expanded </strong>into <strong>microwave wavelengths</strong> as the Universe expanded</li></ul></li></ul></details></li></ul><ul id="5efa6724-6391-47a2-9ad5-bdba28be6ba2" class="toggle"><li><details open=""><summary><span style="border-bottom:0.05em solid">The Hubble Constant</span></summary><ul id="3740295e-72d0-4edf-9652-1057582a9bfb" class="bulleted-list"><li style="list-style-type:disc">The Hubble Constant <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>H</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">H_0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0813em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span><span>﻿</span></span> is the <strong>ratio </strong>of the <strong>speed </strong>at which the galaxy is <strong>moving away </strong>from the Earth to its <strong>distance </strong>from the Earth<ul id="bfa2f505-47f5-42bd-a123-7047d6d8448a" class="bulleted-list"><li style="list-style-type:circle"><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>H</mi><mn>0</mn></msub><mo>=</mo><mn>2.2</mn><mtext> </mtext><mo lspace="0em" rspace="0em">×</mo><mtext> </mtext><mn>1</mn><msup><mn>0</mn><mrow><mo>−</mo><mn>18</mn></mrow></msup><mtext> </mtext><mtext> </mtext><msup><mi>s</mi><mrow><mo>−</mo><mn>1</mn></mrow></msup></mrow><annotation encoding="application/x-tex">H_0 = 2.2{\:}{\times}{\:}10^{-18}{\:}{\:}s^{-1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0813em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8974em;vertical-align:-0.0833em;"></span><span class="mord">2.2</span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mord">×</span></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">18</span></span></span></span></span></span></span></span></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mord mathnormal">s</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">1</span></span></span></span></span></span></span></span></span></span></span></span></span><span>﻿</span></span></li></ul><figure id="7374fed1-fec6-4605-afdb-131170978377" class="equation"><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><div class="equation-container"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi>H</mi><mn>0</mn></msub><mo>=</mo><mfrac><mi>v</mi><mi>d</mi></mfrac></mrow><annotation encoding="application/x-tex">H_0 = {\frac{v}{d}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0813em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.7936em;vertical-align:-0.686em;"></span><span class="mord"><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.1076em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">d</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">v</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></span></div></figure><table id="26c28e75-e951-41f2-bfc7-e2dd86574b0c" class="simple-table"><tbody><tr id="1bfb48e5-8dfe-44f6-9086-279b81ce5f38"><th id="mskN" class="simple-table-header-color simple-table-header" style="width:48.00000762939453px"><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>H</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">H_0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0813em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span><span>﻿</span></span></th><td id="PxQV" class="" style="width:191.12501525878906px">The <strong>Hubble Constant </strong>(1/s)</td><td id="Ckal" class="" style="width:341px"><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2.2</mn><mtext> </mtext><mo lspace="0em" rspace="0em">×</mo><mtext> </mtext><mn>1</mn><msup><mn>0</mn><mrow><mo>−</mo><mn>18</mn></mrow></msup></mrow><annotation encoding="application/x-tex">2.2{\:}{\times}{\:}10^{-18}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8974em;vertical-align:-0.0833em;"></span><span class="mord">2.2</span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mord">×</span></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">18</span></span></span></span></span></span></span></span></span></span></span></span></span><span>﻿</span></span></td></tr><tr id="d99ffa44-308c-438d-aa3a-e3d08527cc48"><th id="mskN" class="simple-table-header-color simple-table-header" style="width:48.00000762939453px"><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>v</mi></mrow><annotation encoding="application/x-tex">v</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span></span></span></span></span><span>﻿</span></span></th><td id="PxQV" class="" style="width:191.12501525878906px">The <strong>Speed </strong>at which a galaxy is <strong>moving away</strong> from the Earth (m/s)</td><td id="Ckal" class="" style="width:341px"><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mrow><mtext> </mtext><mi>a</mi><mi>c</mi><mi>t</mi><mi>u</mi><mi>a</mi><mi>l</mi><mtext> </mtext><mo>−</mo><mtext> </mtext><mi>e</mi><mi>x</mi><mi>p</mi><mi>e</mi><mi>c</mi><mi>t</mi><mi>e</mi><mi>d</mi><mtext> </mtext><mi>λ</mi></mrow><mrow><mi>a</mi><mi>c</mi><mi>t</mi><mi>u</mi><mi>a</mi><mi>l</mi><mtext> </mtext><mi>λ</mi></mrow></mfrac><mo>=</mo><mfrac><mrow><mi>s</mi><mi>p</mi><mi>e</mi><mi>e</mi><mi>d</mi><mtext> </mtext><mi>o</mi><mi>f</mi><mtext> </mtext><mi>t</mi><mi>h</mi><mi>e</mi><mtext> </mtext><mi>g</mi><mi>a</mi><mi>l</mi><mi>a</mi><mi>x</mi><mi>y</mi></mrow><mrow><mi>s</mi><mi>p</mi><mi>e</mi><mi>e</mi><mi>d</mi><mtext> </mtext><mi>o</mi><mi>f</mi><mtext> </mtext><mi>l</mi><mi>i</mi><mi>g</mi><mi>h</mi><mi>t</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">{\frac{{\:}actual{\:}-{\:}expected{\:}λ}{actual{\:}λ}}={\frac{speed{\:}of{\:}the{\:}galaxy}{speed{\:}of{\:}light}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.2772em;vertical-align:-0.345em;"></span><span class="mord"><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.9322em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">a</span><span class="mord mathnormal mtight">c</span><span class="mord mathnormal mtight">t</span><span class="mord mathnormal mtight">u</span><span class="mord mathnormal mtight">a</span><span class="mord mathnormal mtight" style="margin-right:0.01968em;">l</span><span class="mord mtight"><span class="mspace mtight" style="margin-right:0.2602em;"></span></span><span class="mord mathnormal mtight">λ</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.4461em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mspace mtight" style="margin-right:0.2602em;"></span></span><span class="mord mathnormal mtight">a</span><span class="mord mathnormal mtight">c</span><span class="mord mathnormal mtight">t</span><span class="mord mathnormal mtight">u</span><span class="mord mathnormal mtight">a</span><span class="mord mathnormal mtight" style="margin-right:0.01968em;">l</span><span class="mord mtight"><span class="mspace mtight" style="margin-right:0.2602em;"></span></span><span class="mbin mtight">−</span><span class="mord mtight"><span class="mspace mtight" style="margin-right:0.2602em;"></span></span><span class="mord mathnormal mtight">e</span><span class="mord mathnormal mtight">x</span><span class="mord mathnormal mtight">p</span><span class="mord mathnormal mtight">ec</span><span class="mord mathnormal mtight">t</span><span class="mord mathnormal mtight">e</span><span class="mord mathnormal mtight">d</span><span class="mord mtight"><span class="mspace mtight" style="margin-right:0.2602em;"></span></span><span class="mord mathnormal mtight">λ</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.4133em;vertical-align:-0.4811em;"></span><span class="mord"><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.9322em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">s</span><span class="mord mathnormal mtight">p</span><span class="mord mathnormal mtight">ee</span><span class="mord mathnormal mtight">d</span><span class="mord mtight"><span class="mspace mtight" style="margin-right:0.2602em;"></span></span><span class="mord mathnormal mtight">o</span><span class="mord mathnormal mtight" style="margin-right:0.10764em;">f</span><span class="mord mtight"><span class="mspace mtight" style="margin-right:0.2602em;"></span></span><span class="mord mathnormal mtight" style="margin-right:0.01968em;">l</span><span class="mord mathnormal mtight">i</span><span class="mord mathnormal mtight" style="margin-right:0.03588em;">g</span><span class="mord mathnormal mtight">h</span><span class="mord mathnormal mtight">t</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.4461em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">s</span><span class="mord mathnormal mtight">p</span><span class="mord mathnormal mtight">ee</span><span class="mord mathnormal mtight">d</span><span class="mord mtight"><span class="mspace mtight" style="margin-right:0.2602em;"></span></span><span class="mord mathnormal mtight">o</span><span class="mord mathnormal mtight" style="margin-right:0.10764em;">f</span><span class="mord mtight"><span class="mspace mtight" style="margin-right:0.2602em;"></span></span><span class="mord mathnormal mtight">t</span><span class="mord mathnormal mtight">h</span><span class="mord mathnormal mtight">e</span><span class="mord mtight"><span class="mspace mtight" style="margin-right:0.2602em;"></span></span><span class="mord mathnormal mtight" style="margin-right:0.03588em;">g</span><span class="mord mathnormal mtight">a</span><span class="mord mathnormal mtight" style="margin-right:0.01968em;">l</span><span class="mord mathnormal mtight">a</span><span class="mord mathnormal mtight">x</span><span class="mord mathnormal mtight" style="margin-right:0.03588em;">y</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.4811em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></span><span>﻿</span></span><br/>“change in wavelength”<br/></td></tr><tr id="f50db467-8b39-4f54-aa54-220e39ef390b"><th id="mskN" class="simple-table-header-color simple-table-header" style="width:48.00000762939453px">d</th><td id="PxQV" class="" style="width:191.12501525878906px">The <strong>Distance </strong>of a far galaxy from Earth (m)</td><td id="Ckal" class="" style="width:341px">by measuring the <strong>brightness of a supernova</strong> in that galaxy</td></tr></tbody></table></li></ul></details></li></ul><ul id="ee3b7bfa-c568-4f13-9450-becfd972844d" class="toggle"><li><details open=""><summary><span style="border-bottom:0.05em solid">The Hubble Reciprocal</span></summary><figure id="5e87c584-8f9a-4090-9731-205cf413ef4f" class="equation"><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><div class="equation-container"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi>H</mi><mn>0</mn></msub><mo>=</mo><mfrac><mi>v</mi><mi>d</mi></mfrac><mo>=</mo><mn>2.2</mn><mtext> </mtext><mo lspace="0em" rspace="0em">×</mo><mtext> </mtext><mn>1</mn><msup><mn>0</mn><mrow><mo>−</mo><mn>18</mn></mrow></msup></mrow><annotation encoding="application/x-tex">H_0 = {\frac{v}{d}}= 2.2{\:}{\times}{\:}10^{-18}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0813em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.7936em;vertical-align:-0.686em;"></span><span class="mord"><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.1076em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">d</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">v</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.9474em;vertical-align:-0.0833em;"></span><span class="mord">2.2</span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mord">×</span></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8641em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">18</span></span></span></span></span></span></span></span></span></span></span></span></span></div></figure><figure id="bd443b12-99d0-45b3-b9b6-50cc0fd6499d" class="equation"><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><div class="equation-container"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mfrac><mn>1</mn><msub><mi>H</mi><mn>0</mn></msub></mfrac><mo>=</mo><mfrac><mi>d</mi><mi>v</mi></mfrac></mrow><annotation encoding="application/x-tex">{\frac{1}{H_0}} = {\frac{d}{v}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:2.1574em;vertical-align:-0.836em;"></span><span class="mord"><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3214em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0813em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.836em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.0574em;vertical-align:-0.686em;"></span><span class="mord"><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3714em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">v</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">d</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></span></div></figure><ul id="e60c5037-8b5c-4017-b89c-3cce29975d66" class="bulleted-list"><li style="list-style-type:disc"><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mn>1</mn><msub><mi>H</mi><mn>0</mn></msub></mfrac></mrow><annotation encoding="application/x-tex">{\frac{1}{H_0}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.2902em;vertical-align:-0.4451em;"></span><span class="mord"><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8451em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.08125em;">H</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3173em;"><span style="top:-2.357em;margin-left:-0.0813em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.143em;"><span></span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.4451em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></span><span>﻿</span></span> would equal <strong>time in seconds</strong>, of how long the Universe has been expanding for</li></ul><ul id="282ffe9e-16eb-4236-ace3-b8ef9c1d43d6" class="bulleted-list"><li style="list-style-type:disc">Astronomers have used this formula to estimate <strong>the age of the Universe</strong><ul id="013f6451-25bb-4960-a968-d0c98d1da3fc" class="bulleted-list"><li style="list-style-type:circle"><strong>13.7 billion years</strong></li></ul></li></ul></details></li></ul></details></li></ul><p id="92f16faf-2178-4024-9199-21eaedfb85fe" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

@@ -1,0 +1,679 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>5. Nuclear Physics</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(0, 0, 0, 0.06); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="c6ea088b-f062-4734-8d4d-3f99a404d891" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">🚀</span></div><h1 class="page-title">5. Nuclear Physics</h1><p class="page-description"></p></header><div class="page-body"><p id="8c06a208-8651-45c1-aa69-6eaba2854c3d" class="">
+</p><p id="6d930e83-d49c-4726-bcf1-459535aedba5" class="block-color-red_background"><strong> 5.1: The Nuclear Model of the Atom</strong></p><ul id="8ac0b74c-6768-4d09-8a44-e33eb3050c8a" class="toggle"><li><details open=""><summary>(5.1.1) The Atom</summary><ul id="361849cc-122c-4dfa-b4d4-5be459983523" class="toggle"><li><details open=""><summary><span style="border-bottom:0.05em solid">The Structure of the Atom</span></summary><ul id="72cfefe0-dfe3-4dd8-a73b-dd3cd6e34ea7" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-default"><strong>Atoms</strong></mark> are formed by a <mark class="highlight-blue"><strong>positively charged nucleus</strong></mark> and <mark class="highlight-red"><strong>negatively charged electrons in orbit</strong></mark> around the nucleus<ul id="e23921a1-db41-40c1-b374-7f59c81ca00a" class="bulleted-list"><li style="list-style-type:circle">The <strong>nucleus </strong>is made up of <strong>protons</strong> &amp; <strong>neutrons</strong></li></ul></li></ul></details></li></ul><ul id="f3295cfd-7d13-4d6e-a262-16c8b1372b37" class="toggle"><li><details open=""><summary><span style="border-bottom:0.05em solid">The Formation of Ions</span></summary><ul id="89358b2d-08dc-46dd-86ec-10765470d062" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-default">An </mark><mark class="highlight-default"><strong>Ion</strong></mark><mark class="highlight-default"> </mark>is an <strong>electrically</strong> <strong>charged</strong> atom or group of atoms formed by the <mark class="highlight-red"><strong>loss</strong></mark><mark class="highlight-red"> </mark>or <mark class="highlight-blue"><strong>gain</strong></mark><mark class="highlight-blue"> </mark>of <strong>electrons </strong>(<em>to obtain a duplet or octet structure</em>)<ul id="018a5e92-db7f-4b92-8bcb-57f6c3f2343f" class="bulleted-list"><li style="list-style-type:circle"><mark class="highlight-red"><strong>Losing </strong></mark>electrons = <mark class="highlight-blue"><strong>Positive </strong></mark>ion (<mark class="highlight-blue"><em>cation</em></mark>)</li></ul><ul id="67430e0a-afe2-491f-9d40-0e0b1eb57346" class="bulleted-list"><li style="list-style-type:circle"><mark class="highlight-blue"><strong>Gaining </strong></mark>electrons = <mark class="highlight-red"><strong>Negative </strong></mark>ion (<mark class="highlight-red"><em>anion</em></mark>)</li></ul></li></ul></details></li></ul><ul id="128113a7-05e0-48d2-92e4-cb5d15521978" class="toggle"><li><details open=""><summary><span style="border-bottom:0.05em solid">Rutherford’s Experiment</span></summary><ul id="20d4d22e-905b-41f8-afbe-5862730fe180" class="bulleted-list"><li style="list-style-type:disc">In 1909, a group of scientists (<em>including Ernest </em><strong><em>Rutherford</em></strong>) fired <strong>a beam of alpha particles</strong> (<em>He²⁺, or 2 protons &amp; 2 neutrons</em>) towards a <strong>thin gold foil</strong><ul id="2ca59231-5189-4c28-931c-1a4fbd52e49a" class="bulleted-list"><li style="list-style-type:circle">Gold is the <strong>most malleable</strong> metal and formed the <strong>thinnest </strong>layer of metal</li></ul><ul id="6bedab30-4093-4742-8384-f220d77570c8" class="bulleted-list"><li style="list-style-type:circle">This was done to <strong>investigate the Plum Pudding model</strong> (<em>a cloud of positive matter with electrons scattered inside, like plums in a pudding</em>)</li></ul></li></ul><table id="614db11d-4427-4a4c-8408-0310dccae991" class="simple-table"><thead class="simple-table-header"><tr id="aee1fdbe-050a-4e9c-a780-0d21a98e02bd"><th id="d^PJ" class="simple-table-header-color simple-table-header" style="width:218.00001525878906px"><strong>Discovery</strong></th><th id="ILXf" class="simple-table-header-color simple-table-header" style="width:396.0000305175781px">Inference</th></tr></thead><tbody><tr id="50ab6e17-ca04-428e-a2b9-bad52e6b2cef"><td id="d^PJ" class="" style="width:218.00001525878906px">Most alpha particles <strong>passed straight through</strong> the foil</td><td id="ILXf" class="" style="width:396.0000305175781px">a<strong> very small </strong>nucleus surrounded by <strong>mostly empty space</strong></td></tr><tr id="39cbd3c4-aca1-4174-93ca-7b70c51af18a"><td id="d^PJ" class="" style="width:218.00001525878906px">The alpha particles were <strong>backscattered</strong> (<em>or reflected at a large angle</em>)</td><td id="ILXf" class="" style="width:396.0000305175781px">a nucleus containing <strong>most of the mass</strong> of the atom (<em>heavier than an alpha particle at least</em>)</td></tr><tr id="463cf960-b3f4-4885-a40a-afe8ee6e47dd"><td id="d^PJ" class="" style="width:218.00001525878906px"><strong>Some </strong>(<em>positively charged</em>) alpha particles were <strong>deflected</strong></td><td id="ILXf" class="" style="width:396.0000305175781px">a nucleus that is <strong>positively charged</strong></td></tr></tbody></table></details></li></ul></details></li></ul><ul id="483b428e-fcb2-4c2b-a583-0fc2a1d46c3a" class="toggle"><li><details open=""><summary>(5.1.2) Protons, Neutrons &amp; Electrons</summary><ul id="969a2583-4690-443a-a589-b1a4c212bdcb" class="toggle"><li><details open=""><summary><span style="border-bottom:0.05em solid">Relative Charge</span></summary><table id="2ad31ca2-e839-40fa-827d-f5049920c2db" class="simple-table"><tbody><tr id="92718dc7-c863-4d64-8f97-f0849a2329e4"><td id="vLtn" class=""><strong>Proton</strong></td><td id="}~FG" class="">       <mark class="highlight-blue">  +1</mark></td></tr><tr id="bcbc44f5-cf1b-4173-ab8e-e9847a0ca336"><td id="vLtn" class=""><strong>Neutron</strong></td><td id="}~FG" class="">           0</td></tr><tr id="a222b0ae-39f4-4b00-999c-6493f3851223"><td id="vLtn" class=""><strong>Electron</strong></td><td id="}~FG" class="">        <mark class="highlight-red">  -1</mark></td></tr></tbody></table></details></li></ul><ul id="02e791af-02f9-4fee-b6c8-612ba7b6dacf" class="toggle"><li><details open=""><summary><span style="border-bottom:0.05em solid">Nuclide Notation</span></summary><ul id="8e061ba5-acc8-4eb1-835e-23d63eaeb841" class="bulleted-list"><li style="list-style-type:disc"><strong>Proton</strong><em>/atomic</em><strong> Number (Z) </strong>= the number of protons in an atom</li></ul><ul id="bdc4f7e9-df0e-42db-9b8d-af8cbf75add3" class="bulleted-list"><li style="list-style-type:disc"><strong>Nucleon</strong><em>/mass</em><strong> Number (A) </strong>= the total number of particles (<em>p+n</em>) in the nucleus</li></ul><figure id="14b9845c-6bf5-411c-94cd-83cde475c7f6" class="image" style="text-align:center"><a href="5%20Nuclear%20Physics%20c6ea088bf06247348d4d3f99a404d891/Untitled.png"><img style="width:432px" src="5%20Nuclear%20Physics%20c6ea088bf06247348d4d3f99a404d891/Untitled.png"/></a></figure></details></li></ul><ul id="af8af87f-a494-43db-8ad4-0648d4967340" class="toggle"><li><details open=""><summary><span style="border-bottom:0.05em solid">Isotopes</span></summary><ul id="e925282f-cffc-458c-b71d-9a479b363284" class="bulleted-list"><li style="list-style-type:disc">Isotopes are <strong>atoms of the same element</strong> that have <strong>an equal number of protons </strong>but a <span style="border-bottom:0.05em solid"><strong>different number of neutrons</strong></span><ul id="9429b03d-1552-43e1-b2e2-80a75738992b" class="bulleted-list"><li style="list-style-type:circle"> An element may have <strong>more than one</strong> isotope</li></ul></li></ul><figure id="1fe6ed39-f9b5-4099-8a76-158714280e15" class="image" style="text-align:center"><a href="5%20Nuclear%20Physics%20c6ea088bf06247348d4d3f99a404d891/Untitled%201.png"><img style="width:384px" src="5%20Nuclear%20Physics%20c6ea088bf06247348d4d3f99a404d891/Untitled%201.png"/></a><figcaption>Isotopes of Hydrogen</figcaption></figure></details></li></ul></details></li></ul><ul id="9bf67a69-6058-4629-b20e-d09cc731089e" class="toggle"><li><details open=""><summary>(5.1.3) Nuclear Fission</summary><ul id="ab08ab86-2038-417f-a22a-6da912a515a9" class="bulleted-list"><li style="list-style-type:disc">Nuclear <strong>fission </strong>is <strong>the </strong><mark class="highlight-red"><strong>splitting </strong></mark><strong>of nuclei</strong><ul id="61345b3c-88c8-4cf9-a53a-53d408490437" class="bulleted-list"><li style="list-style-type:circle">Split nuclei will have <mark class="highlight-red"><strong>less </strong></mark><strong>mass </strong>but <mark class="highlight-blue"><strong>more (</strong></mark><em>kinetic</em>)<strong> energy</strong>, and <mark class="highlight-red"><strong>less </strong></mark><strong>total mass</strong></li></ul><ul id="9187c14f-ad6a-4f91-8836-b39d1877c96c" class="bulleted-list"><li style="list-style-type:circle"><strong>Nuclide Equation:</strong><figure id="92eb08b7-4333-4a83-8c53-b8bd9b4bd9b1" class="equation"><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><div class="equation-container"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msubsup><mrow></mrow><msub><mi>Z</mi><mrow><mi>a</mi><mo>+</mo><mi>b</mi></mrow></msub><mrow><msub><mi>A</mi><mrow><mi>a</mi><mo>+</mo><mi>b</mi></mrow></msub><mo>+</mo><mi>k</mi></mrow></msubsup><msub><mi>E</mi><mrow><mi>a</mi><mo>+</mo><mi>b</mi></mrow></msub><mtext> </mtext><mo>+</mo><mtext> </mtext><msubsup><mrow></mrow><mn>0</mn><mn>1</mn></msubsup><mi>n</mi><mtext> </mtext><mtext> </mtext><mtext> </mtext><mtext> </mtext><mo lspace="0em" rspace="0em">→</mo><mtext> </mtext><mtext> </mtext><mtext> </mtext><mtext> </mtext><msubsup><mrow></mrow><msub><mi>Z</mi><mi>a</mi></msub><msub><mi>A</mi><mi>a</mi></msub></msubsup><msub><mi>E</mi><mi>a</mi></msub><mtext> </mtext><mo>+</mo><mtext> </mtext><msubsup><mrow></mrow><msub><mi>Z</mi><mi>b</mi></msub><msub><mi>A</mi><mi>b</mi></msub></msubsup><msub><mi>E</mi><mi>b</mi></msub><mtext> </mtext><mo>+</mo><mtext> </mtext><mo stretchy="false">(</mo><mi>k</mi><mo>+</mo><mn>1</mn><mo stretchy="false">)</mo><mo stretchy="false">(</mo><msubsup><mrow></mrow><mn>0</mn><mn>1</mn></msubsup><mi>n</mi><mo stretchy="false">)</mo><mtext> </mtext><mo>+</mo><mtext> </mtext><mi>e</mi><mi>n</mi><mi>e</mi><mi>r</mi><mi>g</mi><mi>y</mi></mrow><annotation encoding="application/x-tex">{^{A_{a+b}+k}_{Z_{a+b}}}E_{a+b}{\:}+{\:}{^1_0}n{\:}{\:}{\:}{\:}{\rightarrow}{\:}{\:}{\:}{\:}{^{A_a}_{Z_a}}E_a{\:}+{\:}{^{A_b}_{Z_b}}E_b{\:}+{\:}(k+1)({^1_0}n){\:}+{\:}energy</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.4195em;vertical-align:-0.4411em;"></span><span class="mord"><span class="mord"><span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.9784em;"><span style="top:-2.4065em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.07153em;">Z</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3448em;"><span style="top:-2.3488em;margin-left:-0.0715em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">a</span><span class="mbin mtight">+</span><span class="mord mathnormal mtight">b</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2107em;"><span></span></span></span></span></span></span></span></span></span><span style="top:-3.1923em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathnormal mtight">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3448em;"><span style="top:-2.3488em;margin-left:0em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">a</span><span class="mbin mtight">+</span><span class="mord mathnormal mtight">b</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2107em;"><span></span></span></span></span></span></span><span class="mbin mtight">+</span><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.4411em;"><span></span></span></span></span></span></span></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.0576em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">a</span><span class="mbin mtight">+</span><span class="mord mathnormal mtight">b</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2083em;"><span></span></span></span></span></span></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.3169em;vertical-align:-0.3936em;"></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mord"><span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8641em;"><span style="top:-2.453em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span></span><span class="mord mathnormal">n</span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mrel">→</span></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mord"><span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.9232em;"><span style="top:-2.4065em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.07153em;">Z</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1645em;"><span style="top:-2.357em;margin-left:-0.0715em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathnormal mtight">a</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.143em;"><span></span></span></span></span></span></span></span></span></span><span style="top:-3.1449em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathnormal mtight">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1645em;"><span style="top:-2.357em;margin-left:0em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathnormal mtight">a</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.143em;"><span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.3936em;"><span></span></span></span></span></span></span></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.0576em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">a</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.3284em;vertical-align:-0.3994em;"></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mord"><span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.929em;"><span style="top:-2.4065em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.07153em;">Z</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3448em;"><span style="top:-2.3488em;margin-left:-0.0715em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathnormal mtight">b</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.1512em;"><span></span></span></span></span></span></span></span></span></span><span style="top:-3.1507em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathnormal mtight">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3448em;"><span style="top:-2.3488em;margin-left:0em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathnormal mtight">b</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.1512em;"><span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.3994em;"><span></span></span></span></span></span></span></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.0576em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">b</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.1141em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mopen">(</span><span class="mord"><span class="mord"><span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8641em;"><span style="top:-2.453em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span></span><span class="mord mathnormal">n</span><span class="mclose">)</span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord mathnormal">e</span><span class="mord mathnormal">n</span><span class="mord mathnormal" style="margin-right:0.02778em;">er</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span></span></div></figure><figure id="ed5779ac-6630-4e90-aa20-e0f758abaed7" class="equation"><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><div class="equation-container"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>e</mi><mi mathvariant="normal">.</mi><mi>g</mi><mi mathvariant="normal">.</mi><mtext> </mtext><mtext> </mtext><mtext> </mtext><mtext> </mtext><msubsup><mrow></mrow><mn>92</mn><mn>235</mn></msubsup><mi>U</mi><mtext> </mtext><mo>+</mo><mtext> </mtext><msubsup><mrow></mrow><mn>0</mn><mn>1</mn></msubsup><mi>n</mi><mtext> </mtext><mtext> </mtext><mtext> </mtext><mtext> </mtext><mo lspace="0em" rspace="0em">→</mo><mtext> </mtext><mtext> </mtext><mtext> </mtext><mtext> </mtext><msubsup><mrow></mrow><mn>36</mn><mn>92</mn></msubsup><mi>K</mi><mi>r</mi><mtext> </mtext><mo>+</mo><mtext> </mtext><msubsup><mrow></mrow><mn>56</mn><mn>141</mn></msubsup><mi>B</mi><mi>a</mi><mtext> </mtext><mo>+</mo><mtext> </mtext><mn>3</mn><mo stretchy="false">(</mo><msubsup><mrow></mrow><mn>0</mn><mn>1</mn></msubsup><mi>n</mi><mo stretchy="false">)</mo><mtext> </mtext><mo>+</mo><mtext> </mtext><mi>e</mi><mi>n</mi><mi>e</mi><mi>r</mi><mi>g</mi><mi>y</mi></mrow><annotation encoding="application/x-tex">e.g.{\:}{\:}{\:}{\:}{^{235}_{92}}U{\:}+{\:}{^1_0}n{\:}{\:}{\:}{\:}{\rightarrow}{\:}{\:}{\:}{\:}{^{92}_{36}}Kr{\:}+{\:}{^{141}_{56}}Ba{\:}+{\:}3({^1_0}n){\:}+{\:}energy</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.1111em;vertical-align:-0.247em;"></span><span class="mord mathnormal">e</span><span class="mord">.</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord">.</span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mord"><span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8641em;"><span style="top:-2.453em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">92</span></span></span></span><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">235</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span></span><span class="mord mathnormal" style="margin-right:0.10903em;">U</span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.1111em;vertical-align:-0.247em;"></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mord"><span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8641em;"><span style="top:-2.453em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span></span><span class="mord mathnormal">n</span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mrel">→</span></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mord"><span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8641em;"><span style="top:-2.453em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">36</span></span></span></span><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">92</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span></span><span class="mord mathnormal" style="margin-right:0.02778em;">Kr</span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.1111em;vertical-align:-0.247em;"></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mord"><span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8641em;"><span style="top:-2.453em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">56</span></span></span></span><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">141</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mord mathnormal">a</span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.1141em;vertical-align:-0.25em;"></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord">3</span><span class="mopen">(</span><span class="mord"><span class="mord"><span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8641em;"><span style="top:-2.453em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span></span><span class="mord mathnormal">n</span><span class="mclose">)</span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord mathnormal">e</span><span class="mord mathnormal">n</span><span class="mord mathnormal" style="margin-right:0.02778em;">er</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span></span></div></figure></li></ul><figure id="a0edc5c6-debe-457d-894e-ffd878e87bb0" class="image" style="text-align:center"><a href="5%20Nuclear%20Physics%20c6ea088bf06247348d4d3f99a404d891/Untitled%202.png"><img style="width:432px" src="5%20Nuclear%20Physics%20c6ea088bf06247348d4d3f99a404d891/Untitled%202.png"/></a></figure></li></ul></details></li></ul><ul id="b1fe5054-051b-4bc9-b3c9-fcfb82f1eee9" class="toggle"><li><details open=""><summary>(5.1.4) Nuclear Fusion</summary><ul id="accd5bc4-799d-4ce9-b243-42ed0d6b3c2d" class="bulleted-list"><li style="list-style-type:disc">Nuclear <strong>fusion </strong>is <strong>the </strong><mark class="highlight-blue"><strong>joining </strong></mark><strong>of nuclei</strong><ul id="ef998762-6db7-4ebf-8171-a6de9a9a8b7b" class="toggle"><li><details open=""><summary>Joint nuclei will have <mark class="highlight-blue"><strong>more </strong></mark><strong>mass </strong>and <mark class="highlight-blue"><strong>more (</strong></mark><em>kinetic</em>)<strong> energy</strong>, but <mark class="highlight-red"><strong>less </strong></mark><strong>total mass</strong></summary><ul id="265101cc-d5f2-4a28-8de8-81a1b58995f4" class="bulleted-list"><li style="list-style-type:disc"><strong>(</strong><strong><em>out of syllabus</em></strong><strong>) </strong>The energy released can be measured by <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi><mo>=</mo><mi>m</mi><msup><mi>c</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">E = mc^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord mathnormal">m</span><span class="mord"><span class="mord mathnormal">c</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></span><span>﻿</span></span></li></ul></details></li></ul><ul id="b9d64f42-e548-4852-877e-3ba58a6da302" class="bulleted-list"><li style="list-style-type:circle"><strong>Nuclide Equation: </strong>(<em>k can =0</em>)</li></ul><figure id="af0082bb-92a5-44a2-a3f7-2633d839f2a9" class="equation"><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><div class="equation-container"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msubsup><mrow></mrow><msub><mi>Z</mi><mi>a</mi></msub><msub><mi>A</mi><mi>a</mi></msub></msubsup><mi>X</mi><mtext> </mtext><mo>+</mo><mtext> </mtext><msubsup><mrow></mrow><msub><mi>Z</mi><mi>b</mi></msub><msub><mi>A</mi><mi>b</mi></msub></msubsup><mi>Y</mi><mtext> </mtext><mtext> </mtext><mtext> </mtext><mtext> </mtext><mo lspace="0em" rspace="0em">→</mo><mtext> </mtext><mtext> </mtext><mtext> </mtext><mtext> </mtext><msubsup><mrow></mrow><msub><mi>Z</mi><mrow><mi>a</mi><mo>+</mo><mi>b</mi></mrow></msub><mrow><msub><mi>A</mi><mrow><mi>a</mi><mo>+</mo><mi>b</mi></mrow></msub><mo>−</mo><mi>k</mi></mrow></msubsup><mi>Z</mi><mtext> </mtext><mo>+</mo><mtext> </mtext><mi>k</mi><mo stretchy="false">(</mo><msubsup><mrow></mrow><mn>0</mn><mn>1</mn></msubsup><mi>n</mi><mo stretchy="false">)</mo><mtext> </mtext><mo>+</mo><mtext> </mtext><mi>e</mi><mi>n</mi><mi>e</mi><mi>r</mi><mi>g</mi><mi>y</mi></mrow><annotation encoding="application/x-tex">{^{A_a}_{Z_a}}X{\:}+{\:}{^{A_b}_{Z_b}}Y{\:}{\:}{\:}{\:}{\rightarrow}{\:}{\:}{\:}{\:}{^{A_{a+b}-k}_{Z_{a+b}}}Z{\:}+{\:}k({^1_0}n){\:}+{\:}energy</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.3169em;vertical-align:-0.3936em;"></span><span class="mord"><span class="mord"><span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.9232em;"><span style="top:-2.4065em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.07153em;">Z</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1645em;"><span style="top:-2.357em;margin-left:-0.0715em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathnormal mtight">a</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.143em;"><span></span></span></span></span></span></span></span></span></span><span style="top:-3.1449em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathnormal mtight">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1645em;"><span style="top:-2.357em;margin-left:0em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathnormal mtight">a</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.143em;"><span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.3936em;"><span></span></span></span></span></span></span></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.4195em;vertical-align:-0.4411em;"></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mord"><span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.929em;"><span style="top:-2.4065em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.07153em;">Z</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3448em;"><span style="top:-2.3488em;margin-left:-0.0715em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathnormal mtight">b</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.1512em;"><span></span></span></span></span></span></span></span></span></span><span style="top:-3.1507em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathnormal mtight">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3448em;"><span style="top:-2.3488em;margin-left:0em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathnormal mtight">b</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.1512em;"><span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.3994em;"><span></span></span></span></span></span></span></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mrel">→</span></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mord"><span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.9784em;"><span style="top:-2.4065em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.07153em;">Z</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3448em;"><span style="top:-2.3488em;margin-left:-0.0715em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">a</span><span class="mbin mtight">+</span><span class="mord mathnormal mtight">b</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2107em;"><span></span></span></span></span></span></span></span></span></span><span style="top:-3.1923em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathnormal mtight">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3448em;"><span style="top:-2.3488em;margin-left:0em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">a</span><span class="mbin mtight">+</span><span class="mord mathnormal mtight">b</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2107em;"><span></span></span></span></span></span></span><span class="mbin mtight">−</span><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.4411em;"><span></span></span></span></span></span></span></span><span class="mord mathnormal" style="margin-right:0.07153em;">Z</span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.1141em;vertical-align:-0.25em;"></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mopen">(</span><span class="mord"><span class="mord"><span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8641em;"><span style="top:-2.453em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span></span><span class="mord mathnormal">n</span><span class="mclose">)</span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord mathnormal">e</span><span class="mord mathnormal">n</span><span class="mord mathnormal" style="margin-right:0.02778em;">er</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span></span></div></figure><figure id="84c5b447-aa8a-4f86-8cd3-eaf879a6ff28" class="equation"><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><div class="equation-container"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>e</mi><mi mathvariant="normal">.</mi><mi>g</mi><mi mathvariant="normal">.</mi><mtext> </mtext><mtext> </mtext><mtext> </mtext><mtext> </mtext><msubsup><mrow></mrow><mn>1</mn><mn>2</mn></msubsup><mi>H</mi><mtext> </mtext><mo>+</mo><mtext> </mtext><msubsup><mrow></mrow><mn>1</mn><mn>1</mn></msubsup><mi>H</mi><mtext> </mtext><mtext> </mtext><mtext> </mtext><mtext> </mtext><mo lspace="0em" rspace="0em">→</mo><mtext> </mtext><mtext> </mtext><mtext> </mtext><mtext> </mtext><msubsup><mrow></mrow><mn>2</mn><mn>3</mn></msubsup><mi>H</mi><mi>e</mi><mtext> </mtext><mo>+</mo><mtext> </mtext><mi>e</mi><mi>n</mi><mi>e</mi><mi>r</mi><mi>g</mi><mi>y</mi></mrow><annotation encoding="application/x-tex">e.g.{\:}{\:}{\:}{\:}{^2_1}H{\:}+{\:}{^1_1}H{\:}{\:}{\:}{\:}{\rightarrow}{\:}{\:}{\:}{\:}{^3_2}He{\:}+{\:}energy</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.1111em;vertical-align:-0.247em;"></span><span class="mord mathnormal">e</span><span class="mord">.</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord">.</span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mord"><span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8641em;"><span style="top:-2.453em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span></span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.1111em;vertical-align:-0.247em;"></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mord"><span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8641em;"><span style="top:-2.453em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span></span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mrel">→</span></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mord"><span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8641em;"><span style="top:-2.453em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span></span><span class="mord mathnormal">He</span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord mathnormal">e</span><span class="mord mathnormal">n</span><span class="mord mathnormal" style="margin-right:0.02778em;">er</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span></span></div></figure><figure id="88d7338c-3e20-40b7-bb70-580c151e770f" class="image" style="text-align:center"><a href="5%20Nuclear%20Physics%20c6ea088bf06247348d4d3f99a404d891/Untitled%203.png"><img style="width:528px" src="5%20Nuclear%20Physics%20c6ea088bf06247348d4d3f99a404d891/Untitled%203.png"/></a></figure></li></ul></details></li></ul><p id="a98d3b79-8e7a-4c09-87ed-6c4cda2c2dd3" class="">
+</p><p id="3d01eefd-afe3-49b8-bd99-52bc27208fd3" class="block-color-red_background"><strong> 5.2: Radioactivity</strong></p><ul id="5a8a8a45-074e-4286-bfdf-1683f669b55b" class="toggle"><li><details open=""><summary>(5.2.1) Detection of Radioactivity</summary><ul id="71543c3d-d397-4425-b55d-694727cf89e8" class="toggle"><li><details open=""><summary><span style="border-bottom:0.05em solid">Background Radiation</span></summary><ul id="77e46151-56d9-420b-9790-e83461c2e63d" class="bulleted-list"><li style="list-style-type:disc"><strong>Background Radiation</strong> = radiation that <strong>exists around us all the time</strong></li></ul><table id="896c91ea-1633-406a-b1a2-aa15da075c82" class="simple-table"><thead class="simple-table-header"><tr id="2d8cb8e8-381f-49fe-9b88-d506b8102f41"><th id="KV_e" class="simple-table-header-color simple-table-header" style="width:149px">Source</th><th id="SRon" class="simple-table-header-color simple-table-header">Abundance <br/>(<br/><em>not important</em>)</th><th id="&gt;j]X" class="simple-table-header-color simple-table-header" style="width:294px">Explanation</th></tr></thead><tbody><tr id="5c717c16-4c36-4193-96e8-0294c31673a2"><td id="KV_e" class="" style="width:149px">Radon Gas (<em>in air</em>)</td><td id="SRon" class="">~50%</td><td id="&gt;j]X" class="" style="width:294px">comes from the <strong>natural underground decay of uranium</strong> in rocks and soil</td></tr><tr id="5b11306f-0acf-41e0-8f79-ba00eff95f14"><td id="KV_e" class="" style="width:149px">Rocks &amp; Buildings</td><td id="SRon" class="">~15%</td><td id="&gt;j]X" class="" style="width:294px"><strong>uranium/thorium</strong> in rocks</td></tr><tr id="a19bba94-fb25-4f6b-b09c-ee8892338461"><td id="KV_e" class="" style="width:149px">Food &amp; Drink</td><td id="SRon" class="">~10%</td><td id="&gt;j]X" class="" style="width:294px"><strong>naturally occurring </strong>radioactive elements</td></tr><tr id="9dfa7e04-1abc-4d55-beaa-3bc5e6924b19"><td id="KV_e" class="" style="width:149px">Cosmic Rays</td><td id="SRon" class="">~10%</td><td id="&gt;j]X" class="" style="width:294px">the <strong>sun</strong>, supernovae or other cosmic events <strong>release protons or other particles</strong></td></tr></tbody></table></details></li></ul><ul id="2a3821e5-da63-4df1-a212-fcab650f3827" class="toggle"><li><details open=""><summary><span style="border-bottom:0.05em solid">Geiger-Müller tubes</span></summary><ul id="2d542088-6a08-4fcb-b8c9-0b3f793bab02" class="bulleted-list"><li style="list-style-type:disc">Each time it <strong>absorbs radiation</strong>, it transmits an <strong>electrical pulse</strong> to a <strong>counting machine</strong><ul id="126df5fb-7b76-484d-8a4a-f83acb4c9c23" class="bulleted-list"><li style="list-style-type:circle">Radioactivity is measured in <strong>count rate</strong> (<em>counts/s ; counts/min</em>)</li></ul><ul id="855cc170-6586-496f-b15c-1c5f4f693327" class="bulleted-list"><li style="list-style-type:circle"><strong>Corrected count rate</strong> = <span style="border-bottom:0.05em solid">readings - background radiation</span> (<em>by removing source</em>)</li></ul></li></ul><figure id="9ed3c4c9-42b3-4aae-b54b-8e6063a11f72" class="image" style="text-align:center"><a href="5%20Nuclear%20Physics%20c6ea088bf06247348d4d3f99a404d891/Untitled%204.png"><img style="width:528px" src="5%20Nuclear%20Physics%20c6ea088bf06247348d4d3f99a404d891/Untitled%204.png"/></a></figure></details></li></ul></details></li></ul><ul id="8c032d22-becc-498f-974e-ceeb758ccafa" class="toggle"><li><details open=""><summary>(5.2.2) Types of Nuclear Emission</summary><ul id="8c6405bc-a76f-4806-b10e-d573b954097b" class="toggle"><li><details open=""><summary><span style="border-bottom:0.05em solid">Alpha, </span><span style="border-bottom:0.05em solid">Beta(-)</span><span style="border-bottom:0.05em solid"> &amp; Gamma Particles</span></summary><ul id="e7432a60-d50e-4db6-945c-49333476ccd7" class="bulleted-list"><li style="list-style-type:disc"><strong>Ionisation </strong>is the process of an atom <strong>gaining or losing</strong> electrons to become <strong>charged</strong><ul id="526cfad6-d06c-4e64-9361-2e7785de7c98" class="bulleted-list"><li style="list-style-type:circle"><mark class="highlight-blue"><strong>Greater</strong></mark><strong> charge</strong> = greater ionisation (α&gt;β&gt;γ)</li></ul><ul id="e81c7144-0828-434b-9715-5aeac25b34b0" class="bulleted-list"><li style="list-style-type:circle"><mark class="highlight-blue"><strong>Greater</strong></mark><strong> kinetic energy </strong>(<em>hence mass</em>)<strong> </strong>= greater ionisation (α&gt;β&gt;γ)</li></ul><table id="83130dca-f1e5-471c-907b-3acaebc0887f" class="simple-table"><thead class="simple-table-header"><tr id="bd5234ac-e3e1-4529-b5fa-a90783c53880"><th id="i[Tb" class="simple-table-header-color simple-table-header" style="width:127.79464721679688px">Type of Emission</th><th id="ygh:" class="simple-table-header-color simple-table-header" style="width:82.00000762939453px">Nature</th><th id="y`zX" class="simple-table-header-color simple-table-header" style="width:65.00000762939453px">Charge</th><th id="&gt;hdM" class="simple-table-header-color simple-table-header" style="width:126.75px">Relative Ionising Effects</th><th id="LWi~" class="simple-table-header-color simple-table-header" style="width:145.99107360839844px">Relative Penetrating Abilities</th></tr></thead><tbody><tr id="68cc62fb-7d63-4fc2-aed9-84c62ec8d77c"><td id="i[Tb" class="" style="width:127.79464721679688px">Alpha (α)</td><td id="ygh:" class="" style="width:82.00000762939453px">2p / 2n</td><td id="y`zX" class="" style="width:65.00000762939453px">+2</td><td id="&gt;hdM" class="" style="width:126.75px"><mark class="highlight-red">High</mark></td><td id="LWi~" class="" style="width:145.99107360839844px"><mark class="highlight-blue">Low</mark></td></tr><tr id="90e283b3-b2bc-4542-9669-b3e5a4231475"><td id="i[Tb" class="" style="width:127.79464721679688px">Beta (β-)</td><td id="ygh:" class="" style="width:82.00000762939453px">1e</td><td id="y`zX" class="" style="width:65.00000762939453px">-1</td><td id="&gt;hdM" class="" style="width:126.75px">Mid</td><td id="LWi~" class="" style="width:145.99107360839844px">Mid</td></tr><tr id="cbbd3990-b201-4838-b437-de89c5905330"><td id="i[Tb" class="" style="width:127.79464721679688px">Gamma (γ)</td><td id="ygh:" class="" style="width:82.00000762939453px">e.m. wave</td><td id="y`zX" class="" style="width:65.00000762939453px">±0</td><td id="&gt;hdM" class="" style="width:126.75px"><mark class="highlight-blue">Low</mark></td><td id="LWi~" class="" style="width:145.99107360839844px"><mark class="highlight-red">High</mark></td></tr></tbody></table></li></ul></details></li></ul><ul id="3178dd37-549b-4c0d-888b-d4a40c2244ee" class="toggle"><li><details open=""><summary><span style="border-bottom:0.05em solid">Deflection in Electric &amp; Magnetic Fields</span></summary><ul id="4fb4c2eb-b8cf-4259-ae7a-6de4dd7ce872" class="toggle"><li><details open=""><summary><span style="border-bottom:0.05em solid">Electric Fields</span></summary><ul id="8367288c-76e9-47f6-b448-d19aaf4f7e76" class="bulleted-list"><li style="list-style-type:disc">Alpha particles are <strong>heavier</strong> than beta particles and <strong>deflect less</strong><ul id="449d9601-9536-4e8f-80a6-1ed1eca9d432" class="bulleted-list"><li style="list-style-type:circle">Alpha(+2) particles are deflected towards the <mark class="highlight-red"><strong>negative </strong></mark>plate</li></ul><ul id="bb1c4dd6-e5f9-4eff-b85b-c271ec7a4694" class="bulleted-list"><li style="list-style-type:circle">Beta(-1) particles are deflected towards the <mark class="highlight-blue"><strong>positive</strong></mark><mark class="highlight-blue"> </mark>plate</li></ul></li></ul><ul id="97766573-ad01-46ae-9f0d-b31f6cea213f" class="bulleted-list"><li style="list-style-type:disc">Gamma radiation is<strong> not deflected </strong>and travels straight </li></ul><figure id="f4ed04af-cd41-408a-b36d-66596e6cc928" class="image" style="text-align:left"><a href="5%20Nuclear%20Physics%20c6ea088bf06247348d4d3f99a404d891/Untitled%205.png"><img style="width:528px" src="5%20Nuclear%20Physics%20c6ea088bf06247348d4d3f99a404d891/Untitled%205.png"/></a></figure></details></li></ul><ul id="35aa8a35-bbc3-43dc-9fa1-d15f2e5bcc0b" class="toggle"><li><details open=""><summary><span style="border-bottom:0.05em solid">Magnetic Fields</span></summary><ul id="31876746-86d1-4bd2-80e2-75b00e28ea91" class="bulleted-list"><li style="list-style-type:disc">Alpha and beta particles are also deflected by magnetic fields (<em>whilst moving</em>)<ul id="223ba67b-8ccb-4bae-9097-ed8d8713a8c2" class="bulleted-list"><li style="list-style-type:circle">Alpha Particle = left-hand Fleming’s</li></ul><ul id="0e13bcde-84d3-402d-862c-0d5a14dcba33" class="bulleted-list"><li style="list-style-type:circle">Beta Particle = right-hand Fleming’s (<em>normal</em>)</li></ul><figure id="2b907c43-0248-45f3-9ad1-086fa65fde3e" class="image"><a href="5%20Nuclear%20Physics%20c6ea088bf06247348d4d3f99a404d891/Untitled%206.png"><img style="width:432px" src="5%20Nuclear%20Physics%20c6ea088bf06247348d4d3f99a404d891/Untitled%206.png"/></a></figure></li></ul></details></li></ul></details></li></ul></details></li></ul><ul id="2e257780-3b18-4159-9ef9-d74c3051eec3" class="toggle"><li><details open=""><summary>(5.2.3) Radioactive Decay</summary><ul id="7559bfc7-d0ee-4834-930c-0fdbe3ea077f" class="toggle"><li><details open=""><summary><span style="border-bottom:0.05em solid">Causes of Radioactive Decay</span></summary><ul id="693b6098-7b9f-4208-a401-31a2f07615a7" class="bulleted-list"><li style="list-style-type:disc">Some atomic nuclei are <strong>unstable </strong>due to having <strong>too many</strong> <span style="border-bottom:0.05em solid">protons or neutrons</span><ul id="41473f9f-ed33-415f-990f-222b87d89008" class="bulleted-list"><li style="list-style-type:circle">Unstable nuclei can <strong>emit </strong><strong>radiation</strong> (<strong>decay</strong>) to become more stable</li></ul><ul id="12346e05-8011-46e5-be19-2f55e6bd86a4" class="bulleted-list"><li style="list-style-type:circle"><strong>Radioactive decay </strong>is <strong>spontaneous</strong><strong> </strong>and <strong>random in direction</strong></li></ul></li></ul><ul id="a7ae3f91-b042-426b-abdf-3aaff8b8fc52" class="bulleted-list"><li style="list-style-type:disc"><strong>Isotopes </strong>of an element may be radioactive due to <strong>an excess of neutrons</strong> in the nucleus and/or <strong>the nucleus being too heavy</strong></li></ul></details></li></ul><ul id="0784fd1b-149a-4d06-92b4-e9517b529c9f" class="toggle"><li><details open=""><summary><span style="border-bottom:0.05em solid">Types of Radioactive Decay</span></summary><ul id="e10cc444-ca99-4ba3-8ebc-ab7b25a64c2c" class="block-color-blue_background toggle"><li><details open=""><summary><span style="border-bottom:0.05em solid">α-decay</span></summary><ul id="5cd1a9b0-0c98-4074-983d-9d8fc84f8748" class="bulleted-list"><li style="list-style-type:disc">Reduces the number of excess neutrons</li></ul><ul id="f3d38153-4029-4c7a-a9a7-98dbb1b64906" class="bulleted-list"><li style="list-style-type:disc">Nucleus changes to that of a <strong>different element</strong></li></ul><ul id="1b56bd59-53b7-4dc9-9a43-5cf52ee86d16" class="bulleted-list"><li style="list-style-type:disc">Releases an<strong> alpha particle</strong> (<em>2 protons, 2 neutrons</em>)</li></ul><figure id="707b3d49-61d6-4249-9321-db210424d5eb" class="equation"><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><div class="equation-container"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msubsup><mrow></mrow><mi>Z</mi><mi>A</mi></msubsup><mi>X</mi><mtext> </mtext><mtext> </mtext><mtext> </mtext><mtext> </mtext><mo lspace="0em" rspace="0em">→</mo><mtext> </mtext><mtext> </mtext><mtext> </mtext><mtext> </mtext><msubsup><mrow></mrow><mrow><mi>Z</mi><mo>−</mo><mn>2</mn></mrow><mrow><mi>A</mi><mo>−</mo><mn>4</mn></mrow></msubsup><mi>Y</mi><mtext> </mtext><mo>+</mo><mtext> </mtext><msubsup><mrow></mrow><mn>2</mn><mn>4</mn></msubsup><mi>α</mi></mrow><annotation encoding="application/x-tex">{^{A}_{Z}}X{\:}{\:}{\:}{\:}{\rightarrow}{\:}{\:}{\:}{\:}{^{A-4}_{Z-2}}Y{\:}+{\:}{^4_2}α</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.2333em;vertical-align:-0.342em;"></span><span class="mord"><span class="mord"><span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8913em;"><span style="top:-2.453em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.07153em;">Z</span></span></span></span><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">A</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mrel">→</span></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mord"><span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8913em;"><span style="top:-2.4163em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.07153em;">Z</span><span class="mbin mtight">−</span><span class="mord mtight">2</span></span></span></span><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">A</span><span class="mbin mtight">−</span><span class="mord mtight">4</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.342em;"><span></span></span></span></span></span></span></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.1111em;vertical-align:-0.247em;"></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mord"><span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8641em;"><span style="top:-2.453em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">4</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span></span></span></span></span></div></figure><figure id="abe58943-81b7-4dcf-bee9-400fcacb82dc" class="image" style="text-align:center"><a href="5%20Nuclear%20Physics%20c6ea088bf06247348d4d3f99a404d891/Untitled%207.png"><img style="width:432px" src="5%20Nuclear%20Physics%20c6ea088bf06247348d4d3f99a404d891/Untitled%207.png"/></a></figure></details></li></ul><ul id="228e3bd9-cc68-4bb6-b79e-acbe85fd8dd4" class="block-color-red_background toggle"><li><details open=""><summary><span style="border-bottom:0.05em solid">β-decay</span></summary><ul id="8224167b-9754-4b70-9df6-ef490d7110a9" class="bulleted-list"><li style="list-style-type:disc">Reduces the number of excess neutrons</li></ul><ul id="24c5368b-b375-4f79-887f-937bd04e7cc1" class="bulleted-list"><li style="list-style-type:disc">Nucleus changes to that of a <strong>different element</strong></li></ul><ul id="baa1b238-6b3c-47e1-9ad4-7a89cfcf5f93" class="bulleted-list"><li style="list-style-type:disc"><strong>Neutron —&gt; Proton + Electron</strong><ul id="e50fdd34-9180-4eea-aa00-518f56edefb5" class="bulleted-list"><li style="list-style-type:circle">Releases a <strong>beta particle</strong> (<em>1 electron</em>)</li></ul></li></ul><figure id="a5d464de-89e1-4665-b2ac-d4b064cda28c" class="equation"><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><div class="equation-container"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msubsup><mrow></mrow><mi>Z</mi><mi>A</mi></msubsup><mi>X</mi><mtext> </mtext><mtext> </mtext><mtext> </mtext><mtext> </mtext><mo lspace="0em" rspace="0em">→</mo><mtext> </mtext><mtext> </mtext><mtext> </mtext><mtext> </mtext><msubsup><mrow></mrow><mrow><mi>Z</mi><mo>+</mo><mn>1</mn></mrow><mi>A</mi></msubsup><mi>Y</mi><mtext> </mtext><mo>+</mo><mtext> </mtext><msubsup><mrow></mrow><mrow><mo>−</mo><mn>1</mn></mrow><mn>0</mn></msubsup><mi>β</mi></mrow><annotation encoding="application/x-tex">{^A_{Z}}X{\:}{\:}{\:}{\:}{\rightarrow}{\:}{\:}{\:}{\:}{^A_{Z+1}}Y{\:}+{\:}{^0_{-1}}β</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.1967em;vertical-align:-0.3053em;"></span><span class="mord"><span class="mord"><span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8913em;"><span style="top:-2.453em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.07153em;">Z</span></span></span></span><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">A</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mrel">→</span></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mord"><span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8913em;"><span style="top:-2.453em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.07153em;">Z</span><span class="mbin mtight">+</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">A</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.3053em;"><span></span></span></span></span></span></span></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.1694em;vertical-align:-0.3053em;"></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mord"><span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8641em;"><span style="top:-2.453em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.3053em;"><span></span></span></span></span></span></span></span><span class="mord mathnormal" style="margin-right:0.05278em;">β</span></span></span></span></span></div></figure><figure id="7828cc81-7e50-4b1f-adb2-b5f2d9f36afa" class="image" style="text-align:center"><a href="5%20Nuclear%20Physics%20c6ea088bf06247348d4d3f99a404d891/Untitled%208.png"><img style="width:432px" src="5%20Nuclear%20Physics%20c6ea088bf06247348d4d3f99a404d891/Untitled%208.png"/></a></figure></details></li></ul><ul id="466f7450-5f62-42d0-a346-b8b61d8951b3" class="block-color-teal_background toggle"><li><details open=""><summary><span style="border-bottom:0.05em solid">γ-radiation</span></summary><ul id="d5c9e6c1-0507-48c6-8c0d-1faf4da8b21a" class="bulleted-list"><li style="list-style-type:disc">Reduces excess energy via <strong>gamma ray</strong></li></ul><ul id="24768fb4-915e-4008-b94e-19fa3418d403" class="bulleted-list"><li style="list-style-type:disc">Nucleus <strong>DOES NOT </strong>change to that of a different element</li></ul><figure id="6f170f1b-0785-42c1-8825-3155f3784bc1" class="equation"><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><div class="equation-container"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msubsup><mrow></mrow><mi>Z</mi><mi>A</mi></msubsup><mi>X</mi><mtext> </mtext><mtext> </mtext><mtext> </mtext><mtext> </mtext><mo lspace="0em" rspace="0em">→</mo><mtext> </mtext><mtext> </mtext><mtext> </mtext><mtext> </mtext><msubsup><mrow></mrow><mi>Z</mi><mi>A</mi></msubsup><mi>X</mi><mtext> </mtext><mo>+</mo><mtext> </mtext><msubsup><mrow></mrow><mn>0</mn><mn>0</mn></msubsup><mi>γ</mi></mrow><annotation encoding="application/x-tex">{^A_Z}X{\:}{\:}{\:}{\:}{\rightarrow}{\:}{\:}{\:}{\:}{^A_Z}X{\:}+{\:}{^0_0}γ</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.1383em;vertical-align:-0.247em;"></span><span class="mord"><span class="mord"><span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8913em;"><span style="top:-2.453em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.07153em;">Z</span></span></span><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">A</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mrel">→</span></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mord"><span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8913em;"><span style="top:-2.453em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.07153em;">Z</span></span></span><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">A</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.1111em;vertical-align:-0.247em;"></span><span class="mord"><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="mord"><span class="mord"><span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8641em;"><span style="top:-2.453em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span></span><span class="mord mathnormal" style="margin-right:0.05556em;">γ</span></span></span></span></span></div></figure><figure id="ae47ba0b-d6f4-4446-8dbe-2184f06b8a6d" class="image" style="text-align:center"><a href="5%20Nuclear%20Physics%20c6ea088bf06247348d4d3f99a404d891/Untitled%209.png"><img style="width:480px" src="5%20Nuclear%20Physics%20c6ea088bf06247348d4d3f99a404d891/Untitled%209.png"/></a></figure></details></li></ul></details></li></ul></details></li></ul><ul id="52853cef-f209-46b3-b895-8d4ab92aaca6" class="toggle"><li><details open=""><summary>(5.2.4) Half-Lives</summary><ul id="4b5a8b7c-d303-47e0-ba32-27aad9c1455e" class="bulleted-list"><li style="list-style-type:disc">The half-life of a particular isotope is the <strong>time taken</strong> for <strong>half the nuclei </strong>of that isotope in any sample to <strong>decay</strong><ul id="a526d9c1-8fda-47b8-95ad-52a6356c7a74" class="bulleted-list"><li style="list-style-type:circle"></li></ul><figure id="7b34a36e-fc88-42b2-ada6-553245764632" class="equation"><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><div class="equation-container"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>N</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo>=</mo><msub><mi>N</mi><mn>0</mn></msub><mo lspace="0em" rspace="0em">×</mo><mo stretchy="false">(</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><msup><mo stretchy="false">)</mo><mfrac><mi>t</mi><msub><mi>t</mi><mfrac><mn>1</mn><mn>2</mn></mfrac></msub></mfrac></msup></mrow><annotation encoding="application/x-tex">N(t)=N_0{\times}({\frac{1}{2}})^{{\frac{t}{t_{\frac{1}{2}}}}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mopen">(</span><span class="mord mathnormal">t</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.2202em;vertical-align:-0.686em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.109em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord">×</span></span><span class="mopen">(</span><span class="mord"><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3214em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">2</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:1.5342em;"><span style="top:-3.9579em;margin-right:0.05em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mtight"><span class="mopen nulldelimiter sizing reset-size3 size6"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8233em;"><span style="top:-2.656em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathnormal mtight">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3448em;"><span style="top:-2.3448em;margin-left:0em;margin-right:0.1em;"><span class="pstrut" style="height:3.0314em;"></span><span class="mord mtight"><span class="mord mtight"><span class="mopen nulldelimiter sizing reset-size1 size6"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.0314em;"><span style="top:-2.468em;"><span class="pstrut" style="height:3em;"></span><span class="mord mtight"><span class="mord mtight">2</span></span></span><span style="top:-3.2255em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line mtight" style="border-bottom-width:0.049em;"></span></span><span style="top:-3.387em;"><span class="pstrut" style="height:3em;"></span><span class="mord mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.532em;"><span></span></span></span></span></span><span class="mclose nulldelimiter sizing reset-size1 size6"></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.2186em;"><span></span></span></span></span></span></span></span></span></span><span style="top:-3.2255em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line mtight" style="border-bottom-width:0.049em;"></span></span><span style="top:-3.384em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">t</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.2145em;"><span></span></span></span></span></span><span class="mclose nulldelimiter sizing reset-size3 size6"></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></div></figure><ul id="d120612b-7a2a-4236-aa19-17f0805dd94e" class="bulleted-list"><li style="list-style-type:circle"><strong>Proportion of isotope</strong> remaining for half-life (x) is  <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mrow><mo>−</mo><mi>x</mi></mrow></msup></mrow><annotation encoding="application/x-tex">2^{-x}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7713em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7713em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mathnormal mtight">x</span></span></span></span></span></span></span></span></span></span></span></span></span><span>﻿</span></span></li></ul><figure id="19bb398e-f252-4583-b182-fd5954878c7a" class="image" style="text-align:center"><a href="5%20Nuclear%20Physics%20c6ea088bf06247348d4d3f99a404d891/Untitled%2010.png"><img style="width:480px" src="5%20Nuclear%20Physics%20c6ea088bf06247348d4d3f99a404d891/Untitled%2010.png"/></a><figcaption>Make sure to subtract background radiation if provided</figcaption></figure></li></ul></details></li></ul><ul id="cbbc916d-4b0e-48c1-806f-4cdb76390521" class="toggle"><li><details open=""><summary>(5.2.5) Applications of Radiation</summary><table id="7bb90025-73b0-486e-a95d-7f2f0c1b990f" class="simple-table"><thead class="simple-table-header"><tr id="1ce9492b-f1eb-40ce-930f-2aa6a3251c7e"><th id="H=uW" class="simple-table-header-color simple-table-header" style="width:159.00000762939453px">Application</th><th id="Hu=k" class="simple-table-header-color simple-table-header" style="width:128.00000762939453px">Type of Decay</th><th id="w[a;" class="simple-table-header-color simple-table-header" style="width:130.08929443359375px">Suitable Half-Life</th><th id="lbUu" class="simple-table-header-color simple-table-header" style="width:193.33929443359375px">Explanation</th></tr></thead><tbody><tr id="f72e3b57-573d-4b23-a7b9-a1112f8a3af0"><td id="H=uW" class="" style="width:159.00000762939453px">Household <strong>Smoke Alarms</strong></td><td id="Hu=k" class="" style="width:128.00000762939453px"><mark class="highlight-blue">α-decay</mark></td><td id="w[a;" class="" style="width:130.08929443359375px">5+ years</td><td id="lbUu" class="" style="width:193.33929443359375px">a constant level of radiation that gets <strong>disrupted</strong> when their is <strong>smoke</strong></td></tr><tr id="d7096a85-8c54-46f3-9984-d6b8c84613c2"><td id="H=uW" class="" style="width:159.00000762939453px">Irradiating food to<strong> kill bacteria</strong></td><td id="Hu=k" class="" style="width:128.00000762939453px"><mark class="highlight-red">β-decay<br/><br/></mark><mark class="highlight-default">or</mark><mark class="highlight-red"> </mark><mark class="highlight-teal">γ-radiation</mark></td><td id="w[a;" class="" style="width:130.08929443359375px">N/A</td><td id="lbUu" class="" style="width:193.33929443359375px">disrupts <strong>bacterial DNA </strong>cheaply</td></tr><tr id="c3d36ebd-ad56-4c9d-9940-e096ab1125d7"><td id="H=uW" class="" style="width:159.00000762939453px"><strong>Sterilisation </strong>of medical equipment</td><td id="Hu=k" class="" style="width:128.00000762939453px"><mark class="highlight-teal">γ-radiation</mark></td><td id="w[a;" class="" style="width:130.08929443359375px">N/A</td><td id="lbUu" class="" style="width:193.33929443359375px">chemical sterilisers may leave chemicals; gamma rays are more effective</td></tr><tr id="e0e59b7d-ed90-4336-b3ff-94a34990feb4"><td id="H=uW" class="" style="width:159.00000762939453px">Measuring the <strong>thickness </strong>of materials</td><td id="Hu=k" class="" style="width:128.00000762939453px"><mark class="highlight-red">β-decay</mark></td><td id="w[a;" class="" style="width:130.08929443359375px">2+ years</td><td id="lbUu" class="" style="width:193.33929443359375px">beta particles are <strong>only partially absorbed</strong> (mid penetration)</td></tr><tr id="24020504-5f13-4f1d-9975-0922f171a35c"><td id="H=uW" class="" style="width:159.00000762939453px"><strong>Diagnosis </strong>of cancer (<em>radiotracers</em>)</td><td id="Hu=k" class="" style="width:128.00000762939453px"><mark class="highlight-teal">γ-radiation</mark></td><td id="w[a;" class="" style="width:130.08929443359375px">a few hours</td><td id="lbUu" class="" style="width:193.33929443359375px"><strong>radiotracers </strong>react with the <strong>very active </strong>cancer cells<strong> </strong>to release <strong>lots of gamma rays</strong> out of your body, to be detected (<em>PET sca</em>n)</td></tr><tr id="a0250fe4-6fed-4a03-9e99-48f527a92d93"><td id="H=uW" class="" style="width:159.00000762939453px"><strong>Treatment </strong>of cancer</td><td id="Hu=k" class="" style="width:128.00000762939453px"><mark class="highlight-teal">γ-radiation</mark></td><td id="w[a;" class="" style="width:130.08929443359375px">N/A</td><td id="lbUu" class="" style="width:193.33929443359375px">can <strong>penetrate</strong> the body to <strong>destroy the DNA</strong> of a cancer cell</td></tr></tbody></table></details></li></ul><ul id="6767d1d2-90c4-40aa-a0c4-20b3848bd234" class="toggle"><li><details open=""><summary>(5.2.6) Safety Precautions</summary><ul id="0c242584-8311-4481-8a6b-929827d13740" class="toggle"><li><details open=""><summary><span style="border-bottom:0.05em solid">The Effects of Ionising Nuclear Radiation</span></summary><ul id="570eb2ee-7b8c-46b2-944c-0cc27aa56df1" class="bulleted-list"><li style="list-style-type:disc">Ionising radiation can damage living things at high doses<ul id="4507c617-6c0e-4671-a3ff-ee998b0a587a" class="bulleted-list"><li style="list-style-type:circle">If the <strong>atoms in a DNA strand</strong> are ionised, the DNA strand can be damaged:<ol type="1" id="850ec084-5852-459f-b8fc-6cd7bfd367b5" class="numbered-list" start="1"><li><strong>Cell death: </strong>the cell may simply die</li></ol><ol type="1" id="a7b74d30-1926-47bd-8815-7ff393189a11" class="numbered-list" start="2"><li><strong>Mutations: </strong>the DNA may make errors when trying to reform itself</li></ol><ol type="1" id="2d71c030-0c74-488d-af56-3db8d1055fca" class="numbered-list" start="3"><li><strong>Cancer: </strong>if a mutated cell is able to <strong>replicate</strong>, it becomes cancer</li></ol></li></ul><figure id="998b2281-cbc9-41bf-9f9f-9634b47da657" class="image" style="text-align:center"><a href="5%20Nuclear%20Physics%20c6ea088bf06247348d4d3f99a404d891/Untitled%2011.png"><img style="width:432px" src="5%20Nuclear%20Physics%20c6ea088bf06247348d4d3f99a404d891/Untitled%2011.png"/></a></figure></li></ul></details></li></ul><ul id="de480856-66d6-4e0b-96eb-65a02d8d502a" class="toggle"><li><details open=""><summary><span style="border-bottom:0.05em solid">Handling Radioactive Materials</span></summary><table id="ad6be82d-f0e9-407a-9ec3-53ffc11c7bbe" class="simple-table"><tbody><tr id="c78c4669-3859-4307-a8ef-0d4350964156"><td id="zp}C" class="" style="width:144.2053680419922px"><strong>Storage</strong></td><td id="Pelf" class="" style="width:373.00000762939453px">in a lead-lined container</td></tr><tr id="2a785792-9d8d-450f-a9f6-6a1e0988a2b4"><td id="zp}C" class="" style="width:144.2053680419922px"><strong>Removal</strong></td><td id="Pelf" class="" style="width:373.00000762939453px">use forceps/tongs, never bare hands</td></tr><tr id="f64f0175-75f8-4fbf-b373-6ea717363320"><td id="zp}C" class="" style="width:144.2053680419922px"><strong>Distance from Self</strong></td><td id="Pelf" class="" style="width:373.00000762939453px">as far as possible</td></tr><tr id="fd11c139-0e50-4e40-a66f-862b0378646f"><td id="zp}C" class="" style="width:144.2053680419922px"><strong>Duration of Use</strong></td><td id="Pelf" class="" style="width:373.00000762939453px">as short as possible</td></tr><tr id="d39f2e4b-e981-45c6-81b7-db808f5c6ec5"><td id="zp}C" class="" style="width:144.2053680419922px"><strong>Personal Protection</strong></td><td id="Pelf" class="" style="width:373.00000762939453px">use gloves, wear protective clothing, and stay behind a lead shield</td></tr></tbody></table></details></li></ul></details></li></ul></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

@@ -1,0 +1,680 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>3. Waves</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(0, 0, 0, 0.06); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="9ba9f05a-b9bc-45c4-a506-c117e236afef" class="page sans"><header><img class="page-cover-image" src="https://www.notion.so/images/page-cover/woodcuts_1.jpg" style="object-position:center 90%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">🌊</span></div><h1 class="page-title">3. Waves</h1><p class="page-description"></p></header><div class="page-body"><p id="cfb544c5-c60d-48fd-aa6e-e9980a439b77" class="">
+</p><p id="a1f6977d-38a6-4060-9e58-c576d742231a" class="block-color-blue_background"><strong> 3.1: General Properites of Waves</strong></p><ul id="ed98e560-0d64-4fba-8d15-0a2aaa81e1a1" class="toggle"><li><details open=""><summary>(3.1.1) Wave Properties</summary><figure id="2f9b6a1b-f850-46f1-98c6-ec03d8a9a269" class="image"><a href="3%20Waves%209ba9f05ab9bc45c4a506c117e236afef/Untitled.png"><img style="width:1909px" src="3%20Waves%209ba9f05ab9bc45c4a506c117e236afef/Untitled.png"/></a></figure></details></li></ul><ul id="5695f637-6901-48b4-b82c-78ac546dba6f" class="toggle"><li><details open=""><summary>(3.1.2) Wave Motion</summary><figure id="d1543ba2-bdcf-4307-90f5-5c4d51e5ddb9" class="image"><a href="3%20Waves%209ba9f05ab9bc45c4a506c117e236afef/Untitled%201.png"><img style="width:680px" src="3%20Waves%209ba9f05ab9bc45c4a506c117e236afef/Untitled%201.png"/></a></figure></details></li></ul><ul id="3bc731c9-e3cd-4991-aed2-244e751525f0" class="toggle"><li><details open=""><summary>(3.1.3) Ripple Tanks</summary><figure id="d5554f92-8d7b-427b-ad68-b6b7a7f109b6" class="image"><a href="3%20Waves%209ba9f05ab9bc45c4a506c117e236afef/Untitled%202.png"><img style="width:2148px" src="3%20Waves%209ba9f05ab9bc45c4a506c117e236afef/Untitled%202.png"/></a></figure></details></li></ul><p id="8de8b92f-b784-453f-81ca-b80074c28e84" class="">
+</p><p id="a3abd8d8-e3ac-4701-940b-d51bd4f763cb" class="block-color-blue_background"><strong> 3.2: Light</strong></p><ul id="7a694976-d1cc-4feb-baa2-ca071de3fb35" class="toggle"><li><details open=""><summary>(3.2.1) Reflection</summary><figure id="3bbc9dac-057d-4289-b4fc-4b1ddce8b78b" class="image"><a href="3%20Waves%209ba9f05ab9bc45c4a506c117e236afef/Untitled%203.png"><img style="width:1638px" src="3%20Waves%209ba9f05ab9bc45c4a506c117e236afef/Untitled%203.png"/></a></figure></details></li></ul><ul id="a3744e04-e1eb-447f-ab85-346f7f3dd4bd" class="toggle"><li><details open=""><summary>(3.2.2) Refraction</summary><ul id="ca600ab2-f73d-4b59-8d4b-37ceccc41b4f" class="toggle"><li><details open=""><summary><span style="border-bottom:0.05em solid">Mechanism of Refraction</span></summary><figure id="25b55d38-51d4-42aa-811c-4415877b8137" class="image"><a href="3%20Waves%209ba9f05ab9bc45c4a506c117e236afef/Untitled%204.png"><img style="width:1655px" src="3%20Waves%209ba9f05ab9bc45c4a506c117e236afef/Untitled%204.png"/></a></figure></details></li></ul><ul id="30ca8964-7fe1-4679-aed1-5ca48f5180b5" class="toggle"><li><details open=""><summary><span style="border-bottom:0.05em solid">Investigating Refraction</span></summary><figure id="da99a184-fa6c-442d-b1aa-cac8f0d76a0f" class="image"><a href="3%20Waves%209ba9f05ab9bc45c4a506c117e236afef/Untitled%205.png"><img style="width:1655px" src="3%20Waves%209ba9f05ab9bc45c4a506c117e236afef/Untitled%205.png"/></a></figure></details></li></ul></details></li></ul><ul id="bdfaa9f8-fa3f-4938-b1a1-2b0a0f378e4c" class="toggle"><li><details open=""><summary><strong>(3.2.3) Thin Lenses</strong></summary><ul id="0b5456d6-88ed-40f8-98b0-1793329e45a8" class="toggle"><li><details open=""><summary><span style="border-bottom:0.05em solid">Mechanism of Thin Lenses</span></summary><figure id="67b5c534-4ebd-4fc6-b604-5e2622d4a24f" class="image"><a href="3%20Waves%209ba9f05ab9bc45c4a506c117e236afef/Untitled%206.png"><img style="width:1659px" src="3%20Waves%209ba9f05ab9bc45c4a506c117e236afef/Untitled%206.png"/></a></figure></details></li></ul><ul id="c516ea94-f4bd-4f5b-9330-20b5c94f21b8" class="toggle"><li><details open=""><summary><span style="border-bottom:0.05em solid">Real Images</span></summary><figure id="f3dfa72f-25b3-4c1d-8991-5165df25e319" class="image"><a href="3%20Waves%209ba9f05ab9bc45c4a506c117e236afef/Untitled%207.png"><img style="width:1660px" src="3%20Waves%209ba9f05ab9bc45c4a506c117e236afef/Untitled%207.png"/></a></figure></details></li></ul><ul id="58121a51-48fe-4e72-a672-a8f165ebf6b0" class="toggle"><li><details open=""><summary><span style="border-bottom:0.05em solid">Converging Virtual Images</span></summary><figure id="7cf26639-f50a-4252-b515-2ddfba126b70" class="image"><a href="3%20Waves%209ba9f05ab9bc45c4a506c117e236afef/Untitled%208.png"><img style="width:1654px" src="3%20Waves%209ba9f05ab9bc45c4a506c117e236afef/Untitled%208.png"/></a></figure></details></li></ul><ul id="f6825471-edce-4e71-b14f-950008f6977c" class="toggle"><li><details open=""><summary><span style="border-bottom:0.05em solid">Diverging Virtual Images</span></summary><figure id="8e93b172-e7bf-4acd-9252-d89f5f4c0dbb" class="image"><a href="3%20Waves%209ba9f05ab9bc45c4a506c117e236afef/Untitled%209.png"><img style="width:652px" src="3%20Waves%209ba9f05ab9bc45c4a506c117e236afef/Untitled%209.png"/></a></figure></details></li></ul><ul id="97bcb822-d0a1-4f62-85be-c40dab69f96d" class="toggle"><li><details open=""><summary><span style="border-bottom:0.05em solid">Applications of Thin Lenses</span></summary><figure id="e21a5c37-17ad-43c8-9571-09903cb3df01" class="image"><a href="3%20Waves%209ba9f05ab9bc45c4a506c117e236afef/Untitled%2010.png"><img style="width:1659px" src="3%20Waves%209ba9f05ab9bc45c4a506c117e236afef/Untitled%2010.png"/></a></figure></details></li></ul></details></li></ul><ul id="6cf8115c-92ce-4904-b475-dc64e181f989" class="toggle"><li><details open=""><summary>(3.2.4) Dispersion</summary><figure id="c73e07e8-7474-45e8-a46d-3acf58db16d2" class="image"><a href="3%20Waves%209ba9f05ab9bc45c4a506c117e236afef/Untitled%2011.png"><img style="width:1654px" src="3%20Waves%209ba9f05ab9bc45c4a506c117e236afef/Untitled%2011.png"/></a></figure></details></li></ul><ul id="2a4e6a8b-6fe9-42c4-bc80-b398ab2a089b" class="toggle"><li><details open=""><summary>(3.3.1) EM Basics</summary><figure id="f6df52cf-f48e-4a40-9bb8-33b2b9fb11a7" class="image"><a href="3%20Waves%209ba9f05ab9bc45c4a506c117e236afef/Untitled%2012.png"><img style="width:1634px" src="3%20Waves%209ba9f05ab9bc45c4a506c117e236afef/Untitled%2012.png"/></a></figure></details></li></ul><ul id="d00d593b-d9ac-42cc-a32e-5912e09e0836" class="toggle"><li><details open=""><summary>(3.3.2) EM Regions</summary><figure id="b6032d91-6c80-43e1-bb32-2844b39a8295" class="image"><a href="3%20Waves%209ba9f05ab9bc45c4a506c117e236afef/Untitled%2013.png"><img style="width:1657px" src="3%20Waves%209ba9f05ab9bc45c4a506c117e236afef/Untitled%2013.png"/></a></figure></details></li></ul><ul id="00e2d9b2-d897-4c61-b4bc-053a541a045b" class="toggle"><li><details open=""><summary>(3.3.3) Communications</summary><figure id="f43881d9-347d-409d-a68d-3bf5aa751218" class="image"><a href="3%20Waves%209ba9f05ab9bc45c4a506c117e236afef/Untitled%2014.png"><img style="width:1659px" src="3%20Waves%209ba9f05ab9bc45c4a506c117e236afef/Untitled%2014.png"/></a></figure></details></li></ul><ul id="14d5f055-6802-4ccd-ae3c-1272598067af" class="toggle"><li><details open=""><summary>(3.3.4) Digital VS Analogue Signals</summary><figure id="8c419cea-6c37-433c-aa65-e3169225fe20" class="image"><a href="3%20Waves%209ba9f05ab9bc45c4a506c117e236afef/Untitled%2015.png"><img style="width:1657px" src="3%20Waves%209ba9f05ab9bc45c4a506c117e236afef/Untitled%2015.png"/></a></figure></details></li></ul><p id="b8a4f631-0f19-4694-92cc-762e379dc504" class="">
+</p><p id="ef56f0bc-a932-4e56-bbe9-64caecc9f3b5" class="block-color-blue_background"><strong> 3.3: Electromagnetic Spectrum</strong></p><p id="43a9cc47-b5f5-4037-b823-bc59b9d3570a" class="block-color-blue_background"><strong> 3.4: Sound</strong></p><ul id="bae95936-5777-4375-aa5e-5d9593a4452b" class="toggle"><li><details open=""><summary>(3.4.1) Sound Wave Features</summary><ul id="0c37613b-dd91-4bfd-b55d-382eebdfe624" class="toggle"><li><details open=""><summary><span style="border-bottom:0.05em solid">Mechanism of Sound Waves</span></summary><ul id="f51d04fb-5401-4542-a2d8-0e416a2d5384" class="bulleted-list"><li style="list-style-type:disc"><strong>Sound waves</strong> are produced by <strong>vibrating</strong> sources (<em>type of pressure wave</em>)<ul id="2fd36292-847b-4e55-9dca-95c4345cdbf4" class="bulleted-list"><li style="list-style-type:circle"><strong>Longitudinal </strong>nature; <strong>requires a medium</strong><ul id="4d5aefc0-fa35-4e71-8cae-60ad8ff4542d" class="bulleted-list"><li style="list-style-type:square"><mark class="highlight-red"><strong>Compression:</strong></mark><strong> region of higher density</strong></li></ul><ul id="be8550b9-5ca1-4b76-ad04-c857b40e03ab" class="bulleted-list"><li style="list-style-type:square"><mark class="highlight-blue"><strong>Rarefaction:</strong></mark><strong> </strong>region of lower density</li></ul></li></ul></li></ul></details></li></ul><ul id="28da929b-d417-4f12-83f0-7f28d8da2c52" class="toggle"><li><details open=""><summary><span style="border-bottom:0.05em solid">Frequency &amp; Pitch</span></summary><ul id="86851af4-b95d-4fc0-966f-deec5e321f91" class="bulleted-list"><li style="list-style-type:disc"><strong>Frequency </strong>(<em>thus wavelength</em>) affects <strong>pitch</strong><ul id="299124f9-176a-4653-a52f-a7f1b2b78338" class="bulleted-list"><li style="list-style-type:circle">High frequency = High pitch</li></ul><ul id="6d66a9ac-cf9d-499f-bdf1-d30e7bf206e2" class="bulleted-list"><li style="list-style-type:circle">Low frequency = Low pitch</li></ul></li></ul></details></li></ul><ul id="9a5a5227-45e7-436c-83d5-699657dfb146" class="toggle"><li><details open=""><summary><span style="border-bottom:0.05em solid">Amplitude &amp; Volume</span></summary><ul id="1473d41d-8c3b-43c5-b42e-953331eb62bc" class="bulleted-list"><li style="list-style-type:disc"><strong>Amplitude </strong>affects <strong>volume</strong><ul id="4e7456d9-fc19-47f6-9ada-d5661d553f5c" class="bulleted-list"><li style="list-style-type:circle">Large amplitude = High volume</li></ul><ul id="53c7fbb4-0c2f-4655-a29e-341d914cb95f" class="bulleted-list"><li style="list-style-type:circle">Small amplitude = Low volume</li></ul></li></ul></details></li></ul><ul id="42b46d0d-a2a4-4add-9807-bfdb1114bb81" class="toggle"><li><details open=""><summary><span style="border-bottom:0.05em solid">Echoes</span></summary><ul id="cc057af6-d517-4c2b-86fe-82a51e7de562" class="bulleted-list"><li style="list-style-type:disc"><strong>Echoes</strong> are the reflection of sound waves (<em>off hard surfaces</em>)<ul id="f91d8ec3-d77a-4b79-9204-5de3bedca8ea" class="bulleted-list"><li style="list-style-type:circle">Can be used to calculate water depth</li></ul><ul id="89623996-2503-4622-a4c0-546283985d5f" class="bulleted-list"><li style="list-style-type:circle">Wave Speed <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo lspace="0em" rspace="0em">×</mo></mrow><annotation encoding="application/x-tex">{\times}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord"><span class="mord">×</span></span></span></span></span></span><span>﻿</span></span> Time</li></ul></li></ul></details></li></ul></details></li></ul><ul id="7846ee1e-2352-418c-a8fc-c81a35e387b6" class="toggle"><li><details open=""><summary>(3.4.2) Sound Wave Facts</summary><ol type="1" id="d2b96768-9dec-4e00-92cc-e2fd7dbd8211" class="numbered-list" start="1"><li>Approximate range of frequencies audible to humans =<strong> 20 Hz to 20 000 Hz</strong></li></ol><ol type="1" id="33d0bc1f-01a5-4093-909e-1631ae190ba1" class="numbered-list" start="2"><li>At <strong>RTP</strong>, sound waves travel at a speed of about <strong>340 m/s</strong><ul id="59971f29-d476-4990-9154-9a5fb6abbc8d" class="bulleted-list"><li style="list-style-type:disc">The speed of sound in air varies from 330-350 m/s</li></ul></li></ol><ol type="1" id="926ee2f6-ed0e-40a7-a1cf-8f79505234d4" class="numbered-list" start="3"><li>In general, sound travels faster in <strong>solids </strong>than in liquids and faster in liquids than in gases</li></ol></details></li></ul><ul id="73a41b01-ce36-4892-9fab-12e6af682bb1" class="toggle"><li><details open=""><summary>(3.4.3) Demonstrating the Speed of Sound</summary><ol type="1" id="ef7d8df1-59a8-4c64-aaef-85999d684ff3" class="numbered-list" start="1"><li>Distance / Time; 2 points (<em>100m or more</em>)</li></ol><ol type="1" id="5adb833d-0366-4e05-b2ea-507eaea28fee" class="numbered-list" start="2"><li>Distance / Time; echo (<em>must be 50m or more</em>)</li></ol><ol type="1" id="c6efc455-3951-44d5-88ae-5ce96048be8f" class="numbered-list" start="3"><li>Oscilloscope &amp; 2 microphones (<em>5m apart</em>) → time between peaks</li></ol></details></li></ul><ul id="e0818d66-d40f-4788-a6f2-37ef3e31228b" class="toggle"><li><details open=""><summary>(3.4.4) Ultrasounds</summary><ul id="96f69c32-7e69-4221-9614-72459b1d723b" class="bulleted-list"><li style="list-style-type:disc"><strong>Ultrasound </strong>= sound with a frequency higher than 20,000 Hz (<em>“transducers”</em>)</li></ul><table id="483cebe9-6325-41f1-9e32-52e85fc65039" class="simple-table"><tbody><tr id="879519dd-97d1-436d-bef3-a2a59fd93d98"><th id=":p^T" class="simple-table-header-color simple-table-header"><strong>Miscellaneous</strong></th><td id="^Nrx" class="" style="width:523.0000152587891px">- Remove dirt &amp; grease from glasses</td></tr><tr id="1b99e672-516d-43c3-b6b5-2e6aef845621"><th id=":p^T" class="simple-table-header-color simple-table-header"><strong>Medicine</strong></th><td id="^Nrx" class="" style="width:523.0000152587891px">- Break up kidney stones<br/>- Baby detector (<br/><em>X-rays are harmful; cell damage; audible causes ear damage</em>)</td></tr><tr id="99ccd8bf-5978-415d-bf98-bc8506d5b7b2"><th id=":p^T" class="simple-table-header-color simple-table-header"><strong>Industry</strong></th><td id="^Nrx" class="" style="width:523.0000152587891px">- Check for cracks inside metal objects<br/>- Cracks will reflect waves earlier<br/></td></tr></tbody></table></details></li></ul></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
